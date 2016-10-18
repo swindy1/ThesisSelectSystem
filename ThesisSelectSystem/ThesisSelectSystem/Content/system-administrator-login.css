@@ -1,0 +1,280 @@
+body{
+	font-family: "arial, helvetica, sans-serif", sans-serif;
+    color: white;
+    font-weight: 300;    
+}
+body ::-webkit-input-placeholder{
+	font-family: "arial, helvetica, sans-serif", sans-serif;
+    color: white;
+    font-weight: 300;  
+}
+body ::-ms-input-placeholder{
+	font-family: "arial, helvetica, sans-serif", sans-serif;
+    color: white;
+    font-weight: 300;  
+}
+
+body ::-moz-placeholder{
+	font-family: "arial, helvetica, sans-serif", sans-serif;
+    color: white;
+    font-weight: 300;  
+}
+
+.wrapper{
+	background: #50a3a2;
+	background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+	background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+	background: -ms-linear-gradient(top left ,#50a3a2 0%,#53e3a5 100%);
+	background: -moz-linear-gradient(top left ,#50a3a1 0%,#53e3a5 100%);
+	/*linear-gradient(起点，开始颜色，结束颜色); 线性渐变，从0的50a3a2到100的53e3a6*/
+	opacity: 0.8;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	
+	
+}
+/*这里的想法就是当登录这个button点击后,欢迎这几个字体就会下滑到中间的位置*/
+.wrapper.form-success .container h1 {
+	transform: translateY(85px);
+	-webkit-transform: translateY(85px);
+	-ms-transform: translateY(85px);
+	-moz-transform: translateY(85px);        
+}
+
+
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 150px 0;
+	height: 600px;
+	text-align: center;
+}
+
+.container h1 {
+    font-size: 30px;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    -ms-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+  
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    -ms-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;              
+    font-weight: 200;
+}
+form {
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+
+form input {
+	padding: 10px 15px;
+	margin: 0 auto 10px auto;
+	appearance: none;
+	display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;       
+    outline: 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 25px;
+    font-weight: 300px;
+    border-radius: 5px;
+    transition-duration: 0.25s;
+    -webkit-transition-duration: 0.25s;
+    -ms-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;       
+    
+}
+
+form input:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+form input:focus {
+    background-color: white;
+    color: #53e3a6;
+}
+
+form button {
+	appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;     
+    outline: 0;
+    background-color: white;
+	border: 0;
+	padding: 10px 15px;
+	color: #53e3a6;
+	border-radius: 5px;
+	width: 305px;
+	cursor: pointer;
+	font-size: 30px;
+	transition-duration: 0.25s;
+	-webkit-transition-duration: 0.25s;
+	-ms-transition-duration: 0.25s;
+	-moz-transition-duration: 0.25s;
+          
+}
+form button:hover {
+    background-color: #f5f7f9;
+}
+.bg-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.bg-bubbles li {
+	position: absolute;
+	list-style: none;
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.15);
+	bottom: -160px;
+	animation: square 15s infinite;
+	-webkit-animation: square 15s infinite;
+	-ms-animation:square 15s infinite;;
+	-moz-animation: square 15s infinite;
+	transition-timing-function: linear;
+	-webkit-transition-timing-function: linear;
+	-ms-transition-timing-function: linear;
+	-moz-transition-timing-function: linear;
+  
+}
+.bg-bubbles li:nth-child(1) {
+  	left: 10%;
+}
+.bg-bubbles li:nth-child(2) {
+	left: 20%;
+	width: 80px;
+	height: 80px;
+	animation-delay: 0.5s;
+	-webkit-animation-delay: 0.5s;
+	-ms-animation-delay: 0.5s;
+	-moz-animation-delay: 0.5s;
+	animation-duration: 10s;       
+	-webkit-animation-duration: 10s;
+	-ms-animation-duration: 10s;
+	-moz-animation-duration: 10s;
+          
+}
+.bg-bubbles li:nth-child(3) {
+	left: 25%;
+	animation-delay: 1s;
+	-webkit-animation-delay: 1s;
+	-ms-animation-delay: 1s;
+	-moz-animation-delay: 1s;       
+}
+.bg-bubbles li:nth-child(4) {
+	left: 40%;
+	width: 60px;
+	height: 60px;
+	animation-duration: 10s;
+	-webkit-animation-duration: 10s;
+	-ms-animation-duration: 10s;
+	-moz-animation-duration: 10s;        
+	background-color: rgba(255, 255, 255, 0.25);
+}
+.bg-bubbles li:nth-child(5) {
+    left: 70%;
+}
+.bg-bubbles li:nth-child(6) {
+	left: 80%;
+	width: 120px;
+	height: 120px;
+	animation-delay: 3s;
+	-webkit-animation-delay: 3s;
+	-ms-animation-delay: 3s;
+	-moz-animation-delay: 3s;       
+	background-color: rgba(255, 255, 255, 0.2);
+}
+.bg-bubbles li:nth-child(7) {
+	left: 32%;
+	width: 160px;
+	height: 160px;
+	animation-delay: 4s;
+	-webkit-animation-delay: 4s;
+	-ms-animation-delay: 4s;
+	-moz-animation-delay: 4s;
+          
+}
+.bg-bubbles li:nth-child(8) {
+	left: 55%;
+	width: 20px;
+	height: 20px;
+	animation-delay: 5s;
+	-webkit-animation-delay: 5s;
+	-ms-animation-delay: 5s;
+	-moz-animation-delay: 5s;
+	animation-duration: 20s;       
+	-webkit-animation-duration: 20s;
+	-ms-animation-delay: 20s;
+	-moz-animation-delay: 20s;
+          
+}
+.bg-bubbles li:nth-child(9) {
+	left: 25%;
+	width: 10px;
+	height: 10px;
+	animation-delay: 2s;
+	-webkit-animation-delay: 2s;
+	-ms-animation-delay: 2s;
+	-moz-animation-delay: 2s;
+	animation-duration: 40s;       
+	-webkit-animation-duration: 40s;
+	-ms-animation-duration: 40s;
+	-moz-animation-duration: 40s;       
+	background-color: rgba(255, 255, 255, 0.3);
+}
+.bg-bubbles li:nth-child(10) {
+	left: 90%;
+	width: 160px;
+	height: 160px;
+	animation-delay: 2s;
+	-webkit-animation-delay: 2s;
+	-ms-animation-delay: 2s;
+	-moz-animation-delay: 2s;       
+}
+@-webkit-keyframes square {
+  0% {
+    -webkit-transform: translateY(0);       
+  }
+  100% {
+    -webkit-transform: translateY(-700px) rotate(600deg);        
+  }
+}
+@-ms-keyframes square{
+	0%{
+	-ms-transform: translateY(0);	
+	}
+	100%{
+	-ms-transform: translateY(-700px) rotate(600deg);	
+	}
+}
+
+@-moz-keyframes square{
+	0%{
+	-moz-transform: translateY(0);	
+	}
+	100%{
+	-moz-transform: translateY(-700px) rotate(600deg);
+	}
+}
+@keyframes square {
+  0% {
+    transform: translateY(0);
+  }
+  100% {  
+  	transform: translateY(-700px) rotate(600deg);
+  }
+}
