@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "创建班级";
+    Layout = "~/Views/Share/share.cshtml";
+}
+@section Css{
+    <link href="@Url.Content("~/Content/MyWorkPlace/div.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/MyWorkPlace/bootstrap.min.css")" rel="stylesheet" type="text/css"/>
+}
+
+@section JavaScript
+{
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/MyAdd/CreateClass.js")" type="text/javascript"></script>
+
+}
+<h2>创建班级页面</h2>
+
+<div class="row bg-info" id="div">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form class="form-inline " role="form" method="post">
+            <br/>
+            <div class="row bg-info">
+                <div class="input-group col-md-8">
+                    <span class="input-group-addon ">班级</span>
+                    <input type="text" placeholder="14xx班" class="form-control " name="ClassName">
+                </div>
+            </div>
+
+
+            <div class="row bg-info">
+                <div class="input-group col-md-8">
+                    <span class="input-group-addon ">人数</span>
+                    <input type="text" placeholder="42" class="form-control" name="ClassNum" >
+                </div>
+            </div>
+
+
+            <div class="row bg-info">
+                <div class="input-group col-md-8">
+                    <span class="input-group-addon ">专业号</span>
+                    <input type="text" placeholder="1" class="form-control " name="ClassId">
+                </div>
+            </div>
+
+            <br>
+            <div class="row bg-info form-group">
+                <button type="submit" class="btn btn-primary" id="sub">提交</button>
+            </div>
+
+        </form>
+    </div>
+
+
+    <div class="col-md-3"></div>
+    @{
+        if (ViewBag.Number!=null)
+        {
+            
+           @: <P>@Response.Write(ViewBag.Number)</P>
+        }
+    }
+</div>

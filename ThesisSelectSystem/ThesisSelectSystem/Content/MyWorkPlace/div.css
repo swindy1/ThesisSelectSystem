@@ -1,0 +1,19 @@
+﻿body {
+    background: #00ced1;
+}
+
+.div {
+    /*padding-left: 30px;
+    padding-top: 30px;
+    margin-left: 20px;
+    margin-top: 20px;*/
+    margin: 5% 10%;
+    padding: 5% 10%;
+}
+
+label {
+    width: 80px;
+    height: 20px;
+    display:inline-block;
+    /*display:inline-block用于设置标签的宽度*/
+}
