@@ -24,7 +24,7 @@
             <div class="row bg-info">
                 <div class="input-group col-md-8">
                     <span class="input-group-addon ">班级</span>
-                    <input type="text" placeholder="14xx班" class="form-control " name="ClassName">
+                    <input type="text" placeholder="14xx班" class="form-control " name="ClassName" id="Name">
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
             <div class="row bg-info">
                 <div class="input-group col-md-8">
                     <span class="input-group-addon ">人数</span>
-                    <input type="text" placeholder="42" class="form-control" name="ClassNum" >
+                    <input type="text" placeholder="42" class="form-control" name="HumanNumber" id="Num">
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
             <div class="row bg-info">
                 <div class="input-group col-md-8">
                     <span class="input-group-addon ">专业号</span>
-                    <input type="text" placeholder="1" class="form-control " name="ClassId">
+                    <input type="text" placeholder="1" class="form-control " name="ClassId" id="Id">
                 </div>
             </div>
 
@@ -53,12 +53,17 @@
     </div>
 
 
-    <div class="col-md-3"></div>
-    @{
-        if (ViewBag.Number!=null)
+    <div class="col-md-3">
+        <input id="NewName" type="text"/><br/>
+        <input id="NewNum" type="text"/><br/>
+        <input id="NewId" type="text" /><br />
+    </div>
+    
+        @*@if (ViewBag.Num != null)
         {
-            
-           @: <P>@Response.Write(ViewBag.Number)</P>
-        }
-    }
+            <P>@Response.Write(ViewBag.Num)</P>
+            <P>@Response.Write(ViewBag.Name)</P>
+            <P>@Response.Write(ViewBag.Id)</P>
+        }*@
+    
 </div>

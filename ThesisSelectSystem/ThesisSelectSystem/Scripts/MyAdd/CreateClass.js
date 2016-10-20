@@ -2,9 +2,38 @@
 {
     $('#sub').click(function (event)
     {
-        event.preventDefault();
-        alert("测试是否会提交数据");
-        var url = $(this).attr('href');
-        $('#sub').load(url);
+        //event.preventDefault();
+        //alert("测试是否会提交数据");
+        ////var url = $(this).attr('href');
+        //var url = window.location.href;
+        //$('#sub').load(url);
+        var classes =
+        {
+            MajorId: null,
+            GraduateYear: null,
+            MonitorId: null,
+            ClassName: $('#Name').val(),
+            ClassId: $('#Id').val(),
+            HumanNumber: $('#Num').val(),
+        };
+
+        $.ajax(
+            {
+                type: "POST",
+                url: "Home/CreateClasses",
+                data: classes,
+                success: function(data) {
+                    //var message = data.ClassName + "\n" + data.ClassId + "\n" + data.HumanNumber;
+                    alert(data.ClassName);
+                    $('#NewId').val(data.ClassId);
+                    $('#NewName').val(data.ClassName);
+                    $('#NewNum').val(data.HumanNumber);
+                }
+
+
+            }
+        );
     });
+
+
 });

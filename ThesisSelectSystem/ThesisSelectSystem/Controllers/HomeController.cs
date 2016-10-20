@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ThesisSelectSystem.Models;
 
 namespace ThesisSelectSystem.Controllers
 {    
@@ -29,5 +30,28 @@ namespace ThesisSelectSystem.Controllers
             return null;
         }
 
-	}
+
+        /// <summary>
+        /// 测试创建班级
+        /// </summary>
+        /// <param name=""></param>
+        /// <returns></returns>
+        public ActionResult CreateClasses()
+        {
+            
+            return View();
+            
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateClasses(ClassesModels classes)
+        {
+            classes.ClassName = "14软件3班";
+            classes.MajorId = 1;
+            return Json(classes);
+        }
+
+
+    }
 }
