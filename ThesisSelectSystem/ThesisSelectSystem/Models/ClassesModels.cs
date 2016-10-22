@@ -14,6 +14,14 @@ namespace ThesisSelectSystem.Models
         public int MonitorId { get; set; }
         public int GraduateYear { get; set; }
 
+        public ClassesModels(int id, string name, int num, int majorid)
+        {
+            this.ClassName = name;
+            this.ClassId = id;
+            this.MajorId = majorid;
+            this.HumanNumber = num;
+        }
+
 
     }
 }

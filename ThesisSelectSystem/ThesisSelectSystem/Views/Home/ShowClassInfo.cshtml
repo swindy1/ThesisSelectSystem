@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>班级信息</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/MyWorkPlace/div.css"/>
+</head>
+
+<body>
+<h2>班级信息</h2>
+<div >
+    <a href=@Url.Action("CreateClasses", "Home")>New</a>
+    <table>
+        <thead>
+        <tr>
+            <td>班级ID</td>
+            <td>班级名</td>
+            <td>专业号</td>
+            <td>班级人数</td>
+        </tr>
+        </thead>
+    </table>
+</div>
+    @*<input type="button" value="查询班级信息" id="query" class="btn bg-success"/>*@
+    <button id="query" name="btn" class="btn bg-success">查询班级信息</button>
+    <input type="button" id="test" value="click"/>
+
+
+    <script src="~/Scripts/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/MyAdd/select-classes-message.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    
+    //onload= function() {
+    //    document.getElementById('query').onclick = function () {
+    //        alert("开始发送异步请求");
+    //        $.ajax({
+    //            url: "ShowClassInfo",
+    //            type: "GET",
+    //            dataType: "json",
+    //            success: function (data) {
+    //                alert("success");
+    //                alert(data);
+    //            },
+    //            error: function () {
+    //                alert("发送Ajax请求失败");
+    //            }
+    //        });
+    //    }
+    //}  
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

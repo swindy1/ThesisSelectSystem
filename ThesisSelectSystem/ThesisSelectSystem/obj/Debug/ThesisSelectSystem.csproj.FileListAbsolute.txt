@@ -50,6 +50,6 @@ D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\bin\zh
 D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
 D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\bin\zh-Hans\System.Web.Helpers.resources.dll
 D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\bin\zh-Hans\System.Web.Mvc.resources.dll
-D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\obj\Debug\ThesisSelectSystem.csprojResolveAssemblyReference.cache
 D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\obj\Debug\ThesisSelectSystem.dll
 D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\obj\Debug\ThesisSelectSystem.pdb
+D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\obj\Debug\ThesisSelectSystem.csprojResolveAssemblyReference.cache

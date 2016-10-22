@@ -17,3 +17,30 @@ label {
     display:inline-block;
     /*display:inline-block用于设置标签的宽度*/
 }
+
+#tb,tr,th,td{
+  border: 1px solid blue;
+}
+
+#tb{
+  width: 200px;
+  height: 300px;
+  border-collapse:collapse; /*//设置单边框*/
+}
+
+td {
+    width: 120px;
+    height: 30px;
+    text-align:center;
+}
+
+#query {
+    margin-left: 32%;
+}
+
+a {
+    text-decoration: none;
+    font-size:200%;
+    color: #8b4513;
+    margin-left: 420px;
+}

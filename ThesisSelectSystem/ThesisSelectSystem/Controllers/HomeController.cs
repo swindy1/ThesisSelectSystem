@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ThesisSelectSystem.DAL;
 using ThesisSelectSystem.Models;
 
 namespace ThesisSelectSystem.Controllers
@@ -45,11 +47,45 @@ namespace ThesisSelectSystem.Controllers
 
 
         [HttpPost]
-        public ActionResult CreateClasses(ClassesModels classes)
+        public ActionResult JsonClasses(ClassesModels classes)
         {
             classes.ClassName = "14软件3班";
             classes.MajorId = 1;
             return Json(classes);
+        }
+
+        /// <summary>
+        /// 查询班级信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ShowClassInfo()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                List<ClassesModels> ClassesInfo = new List<ClassesModels>();
+                string sqlContent = "select ClassID,ClassName,MajorID,HumanNumber from classes";
+                DataTable dt = SqlHelper.ExecuteDataTable(sqlContent);
+                int id;
+                int majorid;
+                int number;
+                string name;
+                int col = dt.Columns.Count;
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    int i = 0;
+                    id =(int) row[i++];
+                    name = (string) row[i++];
+                    majorid = (int) row[i++];
+                    number = (int) row[i];
+                    ClassesInfo.Add(new ClassesModels(id,name,number,majorid));
+                }
+
+                return Json(ClassesInfo, JsonRequestBehavior.AllowGet);
+            }
+
+            //
+            return View();
         }
 
 

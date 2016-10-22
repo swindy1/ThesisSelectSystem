@@ -2,7 +2,7 @@
 {
     $('#sub').click(function (event)
     {
-        //event.preventDefault();
+        event.preventDefault();
         //alert("测试是否会提交数据");
         ////var url = $(this).attr('href');
         //var url = window.location.href;
@@ -20,7 +20,7 @@
         $.ajax(
             {
                 type: "POST",
-                url: "Home/CreateClasses",
+                url: "JsonClasses",
                 data: classes,
                 success: function(data) {
                     //var message = data.ClassName + "\n" + data.ClassId + "\n" + data.HumanNumber;
@@ -28,6 +28,12 @@
                     $('#NewId').val(data.ClassId);
                     $('#NewName').val(data.ClassName);
                     $('#NewNum').val(data.HumanNumber);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                     alert("error");
+                     alert(XMLHttpRequest);
+                     alert(errorThrown);
+                     alert(textStatus);
                 }
 
 
