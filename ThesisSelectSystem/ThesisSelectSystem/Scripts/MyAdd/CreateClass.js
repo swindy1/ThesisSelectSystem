@@ -9,11 +9,11 @@
         //$('#sub').load(url);
         var classes =
         {
-            MajorId: null,
+            MajorId: $('#Id').val(),
             GraduateYear: null,
             MonitorId: null,
             ClassName: $('#Name').val(),
-            ClassId: $('#Id').val(),
+            ClassId: null,
             HumanNumber: $('#Num').val(),
         };
 

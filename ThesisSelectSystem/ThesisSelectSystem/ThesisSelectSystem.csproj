@@ -136,6 +136,7 @@
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SystemAdminController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="DAL\MyHelp\ClassesTableHelper.cs" />
     <Compile Include="DAL\SqlConnectionString.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="DAL\User_dal.cs" />
