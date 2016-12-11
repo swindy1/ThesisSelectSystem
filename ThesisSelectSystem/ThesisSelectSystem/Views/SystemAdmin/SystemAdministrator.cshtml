@@ -1,0 +1,425 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>系统管理员</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/SystemAdministrator/bootstrap-select.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/SystemAdministrator/system-administrator.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/SystemAdministrator/wangEditor.css" />
+
+</head>
+<body>
+
+    <header>
+
+        <figure class="adim">
+            <a href="#">
+                <span class="glyphicon glyphicon-leaf"></span>
+                <figcaption>梁婉玲</figcaption>
+            </a>
+        </figure>
+
+        <div class="setting">
+            <a id="setting" href="#">
+                <span class="glyphicon  glyphicon-tasks"></span>
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </a>
+
+        </div>
+
+        <a href="#">
+            <div class="warn">
+                <span class="glyphicon glyphicon-bell"></span>
+                <span class="badge">14</span>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="email">
+                <span class="glyphicon glyphicon-envelope"></span>
+                <span class="badge">5</span>
+            </div>
+        </a>
+
+    </header>
+
+    <div class="content ">
+
+        <aside class="vertical ">
+            <ul>
+                <li class="system">
+                    <a id="system" class="system" href="#">
+                        <span class="glyphicon glyphicon-cog"></span>
+                        系统设置
+                        <img id="more" src=@Url.Content("~/img/SystemAdministrator/more.png") />
+                    </a>
+                    <ul id="system-setup" class="system-setup ">
+                        <li id="writrAnoucement">
+                            <a class="a" href="#">
+                                <span class="glyphicon glyphicon-certificate"></span>
+                                公告
+                            </a>
+                        </li>
+                        <li id="setGrade">
+                            <a class="a" href="#">
+                                <span class="glyphicon glyphicon-tint"></span>
+                                设置界别
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <li class="apratment">
+                    <a id="apartment" href="#">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                        学院设置
+                        <img id="more" src=@Url.Content("~/img/SystemAdministrator/more.png") />
+
+                        <ul id="apartment-setup" class="apartment-setup">
+                            <li id="addAparment"><a class="a" href="#"><span class="glyphicon glyphicon-plus"></span>添加学院</a></li>
+                            <li id="deleteAparment"><a class="a" href="#"><span class="glyphicon glyphicon-minus"></span>删除学院</a></li>
+                            <li id="addAminstrator"><a class="a" href="#"><span class="glyphicon glyphicon-eye-open"></span>添加管理员</a></li>
+                            <li id="deleteAminstrator"><a class="a" href="#"><span class="glyphicon glyphicon-remove"></span>删除管理员</a></li>
+                            <li id="subject-setup"><a class="a" href="#"><span class="glyphicon glyphicon-th-large"></span>专业管理</a></li>
+                        </ul>
+                    </a>
+
+                </li>
+                <li id="interface">
+                    <a href="#"><span class="glyphicon glyphicon-pencil"></span>界面设置</a>
+                </li>
+            </ul>
+        </aside>
+
+
+        <div class="contain">
+
+            <div class="daohang">
+
+                <div class="search col-xs-2">
+
+                    <div class="input-group">
+                        <input class="form-control" placeholder="search" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="anm-main">
+
+                <div class="announcement">
+                    <div class="anm">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        <span>发布公告</span>
+                    </div>
+                    <div class="form-group">
+                        <form id="annoucement" action="#" method="get">
+                            <div class="anm-select">
+                                <span class="rang">公告范围</span>
+                                <div class="select">
+                                    <select class="selectpicker show-tick" multiple value="<%=search.type||''%>" required>
+                                        <option>信息科学与技术学院</option>
+                                        <option>文学与传媒学院</option>
+                                        <option>旭日广东服装学院</option>
+                                        <option>电子信息与电气工程学院</option>
+                                        <option>化学与材料工程学院</option>
+                                        <option>经济管理学院</option>
+                                        <option>建筑与土木工程学院</option>
+                                        <option>地理与旅游学院</option>
+                                        <option>美术与设计学院</option>
+                                        <option>数学与大数据学院</option>
+                                        <option>体育学院</option>
+                                        <option>外国语学院</option>
+                                        <option>音乐学院</option>
+                                        <option>政法学院</option>
+                                        <option>马克思主义学院</option>
+                                        <option>教育科学学院</option>
+                                        <option>全选</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="topic">
+                                <span class="topic-font"> 公告主题</span>
+                                <input class="top-input form-control" type="text" required placeholder="主题" />
+
+                            </div>
+
+                            <div class="anm-conten">
+                                <div class="anm-text">
+                                    <textarea id="textarea1" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="btn btn-gr">
+                                <button class="btn btn-success mybtn">发表</button>
+                                <button class="btn btn-default mybtn">存为草稿</button>
+                                <button class="btn btn-default mybtn">取消</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="list">
+                    <!--<i class="glyphicon glyphicon-list"></i>-->
+                    <span><h2>公告列表</h2></span>
+
+                    <h1>暂无公告</h1>
+                    <!--<ul class="anm-list">
+                        <li><a href="#">[公告主题]省略文.....公告时间</a></li>
+                        <li><a href="#">[公告主题]省略文.....公告时间</a></li>
+                        <li><a href="#">[公告主题]省略文.....公告时间</a></li>
+                        <li><a href="#">[公告主题]省略文.....公告时间</a></li>
+                        <li><a href="#">[公告主题]省略文.....公告时间</a></li>
+                        <li><a href="#">[公告主题]省略文.....公告时间</a></li>
+                        <li><a href="#">[公告主题]省略文.....公告时间</a></li>
+
+                    </ul>-->
+                </div>
+            </div>
+            <div class="grade-main">
+                <div class="selectgrade">
+                    <div class="gradetext">
+                        <span>设置当前可选题年级</span>
+                    </div>
+                    <div class="gradeform">
+                        <form action="#" method="get">
+                            <select class="selectpicker show-tick dropdown" value="<%=search.type||''%>" required>
+                                <option>2014</option>
+                                <option>2015</option>
+                                <option>2016</option>
+                                <option>2017</option>
+                                <option>2018</option>
+                                <option>2019</option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                                <option>2025</option>
+                                <option>2026</option>
+                            </select>
+                            <button class="btn btn-default">确定</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addAparment">
+                <div id="institution" class="tab-pane">
+
+                    <ul class="institute-list" id="deplist">
+                        <li class="title" id="schoollist">学院列表</li>
+                        @foreach (var department in ViewBag.departments)
+                        {
+                            <li>@department</li>
+                        }
+                        <li class="adds" id="addname"><input type="text" placeholder="请输入学院名字" id="addDepartment"></li>
+                        <li class="adds"><input type="button" value="添加" id="addepart"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="deleteAparment">
+                <div id="institution1" class="tab-pane">
+                    <ul class="institute-list">
+                        <li class="title">学院列表</li>
+                        <li>信息科学技术学院<a href="#">删除</a></li>
+                        <li>音乐学院<a href="#">删除</a></li>
+                        <li>经济管理学院<a href="#">删除</a></li>
+                        <li>美术学院<a href="#">删除</a></li>
+                        <li>政法学院<a href="#">删除</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="addAminstrator">
+                <div id="administrator" class="tab-pane">
+
+                    <table class="table-list1" border="1">
+                        <caption>管理员列表</caption>
+                        <tr><th>编号</th><th>姓名</th><th>所属学院/部门</th></tr>
+                        <tr><td>001</td><td>林俊健</td><td>信息科学技术学院</td></tr>
+                        <tr><td>002</td><td>江楚坚</td><td>信息科学技术学院</td></tr>
+                        <tr><td>003</td><td>吴一帆</td><td>电子信息与电信工程学院</td></tr>
+                    </table>
+
+                    <table class="table-list2">
+                        <caption>添加管理员</caption>
+                        <form>
+                            <tr>
+                                <td class="la">姓名：</td>
+                                <td>
+                                    <input type="text" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="la">编号：</td>
+                                <td>
+                                    <input type="text" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="la">所属学院/系：</td>
+                                <td>
+                                    <input type="text" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <button class="btn" type="submit">重置</button>
+                                    <button class="btn" type="reset">添加</button>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="deleteAminstrator">
+                <div id="adminstrator1" class="tab-pane">
+                    <table class="table-list" border="1">
+                        <caption>管理员列表</caption>
+                        <tr><th></th><th>编号</th><th>姓名</th><th>所属学院/部门</th></tr>
+                        <tr><td><a href="#">删除</a></td><td>001</td><td>林俊健</td><td>信息科学技术学院</td></tr>
+                        <tr><td><a href="#">删除</a></td><td>002</td><td>江楚坚</td><td>信息科学技术学院</td></tr>
+                        <tr><td><a href="#">删除</a></td><td>003</td><td>吴一帆</td><td>电子信息与电信工程学院</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="subject-setup">
+                <div id="major-setup" class="tab-pane">
+                    <table class="table-list3" border="1" id="MajorTable">
+                        <caption>总专业列表</caption>
+                        <tr><th>所属学院/系</th><th>专业名称</th><th>选定</th></tr>
+
+                        @foreach (var name in ViewBag.Data)
+                        {
+                            <tr>
+                                <td>信息科学技术学院</td>
+                                <td>@name</td>
+                                <td><input type="checkbox" class="ch" name="delmajor" value="@name"></td>
+                            </tr>
+                        }
+                        
+                       
+                        <tr><td colspan="3" align="right"><button type="button" class="btn btn-warning btn-sm" id="delmajor">删除</button></td></tr>
+                    </table>
+
+                    <table class="table-list5" border="1">
+                        <caption>班级列表</caption>
+                        <tr><th>所属学院</th><th>班级名称</th><th>选定</th></tr>
+
+                        @foreach (string classname in ViewBag.ClassName)
+                        {
+                            <tr>
+                                <td>信息科学技术学院</td>
+                                <td><a href="#" onclick="openwin()">@classname</a></td>
+                                <td><input type="checkbox" /></td>
+                            </tr>
+                        }
+                        
+                       
+                        <tr><td colspan="3"><a href="#" class="delete">删除</a></td></tr>
+                    </table>
+                    <form class="addform">
+                        <table class="table-list4">
+
+                            <tr>
+                                <td class="la">专业名称：</td>
+                                <td>
+                                    <input type="text" class="form-control" id="majorName"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="la">所属学院/系：</td>
+                                <td>
+                                    <select class="form-control" id="loadDepartment">
+                                        <option>信息科学技术学院</option>
+                                        @foreach (var department in ViewBag.departments)
+                                        {
+                                            <option>@department</option>
+                                        } 
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <button class="btn" type="submit" id="addMajor">添加专业</button>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <label>导入学生列表：</label>
+                        <input type="file" />
+                    </form>
+                </div>
+            </div>
+
+            <div class="intersetup">
+                <div class="location">
+                    <span>设置导航位置</span>
+                    <div class="but">
+                        <button id="left" class="btn btn-default">居左</button>
+                        <button id="right" class="btn btn-default">居右</button>
+                    </div>
+                </div>
+                <div class="backcolor">
+                    <span>设置背景颜色(点击色块即可)</span>
+                    <div class="color">
+                        <a href="#" id="color1"><div class="color1"></div></a>
+                        <a href="#" id="color2"><div class="color2"></div></a>
+                        <a href="#" id="color3"><div class="color3"></div></a>
+                        <a href="#" id="color4"><div class="color4"></div></a>
+                        <button class="btn btn-success btn1" id="moren">恢复默认</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="footer">
+                <div class="limits">
+                    <p class="limits">Copyright© 2016-1017 BY 88888 .All Rights Reserved</p>
+                </div>
+
+                <div class="time">
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <script src="~/Scripts/SystemAdministrator/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/SystemAdministrator/bootstrap-select.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/SystemAdministrator/system-administrator.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/SystemAdministrator/wangEditor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/SystemAdministrator/MajorManage.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+
+		$(function(){
+			$('.selectpicker').selectpicker({noneSelectedText:'选择学院'});
+		    $('.selectpicker').selectpicker('val',$('.selectpicker').attr('value'));
+		});
+
+		var editor = new wangEditor('textarea1');
+		editor.create();
+    </script>
+</body>
+</html>

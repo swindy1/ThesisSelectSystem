@@ -1,6 +1,6 @@
 ﻿$(document).ready(function ()
 {
-    $('#sub').click(function (event)
+    $('#subNewClass').click(function (event)
     {
         event.preventDefault();
         //alert("测试是否会提交数据");
@@ -9,12 +9,9 @@
         //$('#sub').load(url);
         var classes =
         {
-            MajorId: $('#Id').val(),
-            GraduateYear: null,
-            MonitorId: null,
-            ClassName: $('#Name').val(),
-            ClassId: null,
-            HumanNumber: $('#Num').val(),
+            MajorName: $('#MajorName').find("option:selected").text(),
+            ClassName: $('#ClassName').val(),
+            HumanNumber: $('#Number').val(),
         };
 
         $.ajax(
@@ -25,9 +22,8 @@
                 success: function(data) {
                     //var message = data.ClassName + "\n" + data.ClassId + "\n" + data.HumanNumber;
                     alert(data.ClassName);
-                    $('#NewId').val(data.ClassId);
-                    $('#NewName').val(data.ClassName);
-                    $('#NewNum').val(data.HumanNumber);
+                    self.location = '../Home/ShowClassInfo';
+                   
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                      alert("error");

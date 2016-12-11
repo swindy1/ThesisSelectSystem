@@ -7,12 +7,14 @@ using System.Web;
 using System.Web.Mvc;
 using ThesisSelectSystem.DAL;
 using ThesisSelectSystem.DAL.MyHelp;
+using ThesisSelectSystem.Filter.HurricanFilter;
 using ThesisSelectSystem.Models;
 
 namespace ThesisSelectSystem.Controllers
 {    
 
     //用于测试的控制器
+    [SystemAdminActionFilter]
     public class HomeController : Controller
     {
        
@@ -39,10 +41,11 @@ namespace ThesisSelectSystem.Controllers
         /// 测试创建班级,接收get请求
         /// </summary>
         /// <param name=""></param>
-        /// <returns>返回一个添加班级的表单</returns>
+        /// <returns>返回一个添加班级的表单页面</returns>
         public ActionResult CreateClasses()
         {
-            
+            List<string> majorNames=new MajorTableHelper().GetMajorName();
+            ViewBag.Data = majorNames;
             return View();
             
         }
@@ -56,8 +59,9 @@ namespace ThesisSelectSystem.Controllers
         [HttpPost]
         public ActionResult JsonClasses(ClassesModels classes)
         {
-            var res = new ClassesTableHelper().CheckClassNameLegal(classes);
-
+            var helper = new ClassesTableHelper();
+            var res = helper.CheckClassNameLegal(classes);
+            
             #region 通过验证的数据插入数据库
             if (res==0)
             {
@@ -72,7 +76,7 @@ namespace ThesisSelectSystem.Controllers
                 insertParameters.Add(number);
 
                 var majorid= new SqlParameter("@MajorID",SqlDbType.Int);
-                majorid.Value = classes.MajorId;
+                majorid.Value = helper.FindMajorId(classes.MajorName);
                 insertParameters.Add(majorid);
 
                 int isSuccess = SqlHelper.ExecuteNonqueryProc("CreateClasses", insertParameters.ToArray());
@@ -105,8 +109,8 @@ namespace ThesisSelectSystem.Controllers
         {
             if (Request.IsAjaxRequest())
             {
-                #region 初始化sql语句及用于临时接收实体属性的变量
-                List<ClassesModels> ClassesInfo = new List<ClassesModels>();
+                #region 初始化sql语句并用于临时接收实体属性的变量
+                List<ClassTable> ClassesInfo = new List<ClassTable>();
                 string sqlContent = "select ClassID,ClassName,MajorID,HumanNumber, GraduateYear from classes";
                 DataTable dt = SqlHelper.ExecuteDataTable(sqlContent);
                 int id;
@@ -125,7 +129,7 @@ namespace ThesisSelectSystem.Controllers
                     majorid = (int) row[i++];
                     number = (int) row[i++];
                     year = (int?) row[i];
-                    ClassesInfo.Add(new ClassesModels(id,name,number,majorid,year));
+                    ClassesInfo.Add(new ClassTable(id,name,number,majorid,year));
                 }
                 #endregion
                 return Json(ClassesInfo, JsonRequestBehavior.AllowGet);
@@ -133,6 +137,60 @@ namespace ThesisSelectSystem.Controllers
             
             return View();
         }
+
+
+        /// <summary>
+        /// 接收get请求，用于显示修改班级信息页面
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Alter()
+        {
+            var cid = Request["ClassId"];
+            var cname = Request["ClassName"];
+            var num = Request["Number"];
+            var year = Request["GraduateYear"];
+            ViewBag.cid = cid;
+            ViewBag.cname = cname;
+            ViewBag.num = num;
+            ViewBag.year = year;
+            return  View() ;
+        }
+
+
+        /// <summary>
+        /// 接收post请求，用于控制修改班级信息的逻辑处理，修改成功后转到显示班级页面
+        /// </summary>
+        /// <param name="classId"></param>
+        /// <param name="className"></param>
+        /// <param name="number"></param>
+        /// <param name="graduateYear"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Alter(int classId,string className, int number, int graduateYear)
+        {
+            new ClassTable(classId, className, number, graduateYear).Update();
+            return RedirectToAction("ShowClassInfo");
+        }
+
+
+        public ActionResult DeleteClass(int classId)
+        {
+            string message;
+            
+            int res = new ClassTable(classId).Delete();
+            if (res > 0)
+            {
+                message = "成功删除";
+            }
+            else
+            {
+                message = "删除失败";
+            }
+
+            return Json(message, JsonRequestBehavior.AllowGet);
+        }
+        
 
 
     }

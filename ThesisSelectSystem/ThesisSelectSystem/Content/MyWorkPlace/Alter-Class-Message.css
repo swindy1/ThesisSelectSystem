@@ -1,0 +1,39 @@
+﻿body {
+     background: #666;
+     color: #88aaff;
+     font-family: "Helvetica", "Arial", sans-serif;  
+}
+
+h1,   
+h2,   
+strong {   
+  color: #333;
+    text-align: center;   
+}
+h2 {   
+  margin-top: 1em;   
+  padding-top: 1em;   
+}
+
+#div {
+   /* margin: 5% 5% 5% 5%;*/
+    width: 600px;
+    padding: 10% 10%;
+    margin:0 auto;
+    background: #333;
+}
+
+label {
+    width: 80px;
+    height: 20px;
+    display:inline-block;
+    /*display:inline-block用于设置标签的宽度*/
+}
+input {
+    border-radius: 8%;
+    background: #dcdcdc;
+}
+
+#subAlter {
+    margin-left: 58%;
+}

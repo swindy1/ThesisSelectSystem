@@ -37,5 +37,41 @@ namespace ThesisSelectSystem.DAL.MyHelp
 
             return res;
         }
+
+
+        public int FindMajorId(string MajorName)
+        {
+            int majorId = 0;
+            try
+            {
+                List<SqlParameter> args = new List<SqlParameter>();
+                var name = new SqlParameter("@MajorName", SqlDbType.NVarChar);
+                name.Value = MajorName;
+                args.Add(name);
+                majorId = (int)SqlHelper.ExecuteScalarProc("FindMajorId", args.ToArray());
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+            return majorId;
+        }
+
+
+        public List<string> ListClassName()
+        {
+            const string sqltext = @"select ClassName from classes where GraduateYear=@Year";
+            var parameters=new List<SqlParameter>();
+            var year= new SqlParameter("@Year",SqlDbType.Int);
+            year.Value = 2018;
+            parameters.Add(year);
+            var dt = SqlHelper.ExecuteDataTable(sqltext, parameters.ToArray());
+            return (from DataRow dr in dt.Rows select dr[0].ToString()).ToList();
+
+        } 
+
+
     }
 }

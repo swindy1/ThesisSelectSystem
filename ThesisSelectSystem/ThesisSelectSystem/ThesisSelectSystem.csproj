@@ -92,18 +92,33 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\MyWorkPlace\Alter-Class-Message.css" />
     <Content Include="Content\MyWorkPlace\bootstrap.min.css" />
+    <Content Include="Content\MyWorkPlace\CreateClasses.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\SystemAdministrator\bootstrap-select.css" />
+    <Content Include="Content\SystemAdministrator\system-administrator.css" />
+    <Content Include="Content\SystemAdministrator\wangEditor.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon.svg" />
+    <Content Include="img\SystemAdministrator\more.png" />
+    <Content Include="img\SystemAdministrator\提醒.png" />
+    <Content Include="img\SystemAdministrator\管理员.png" />
+    <Content Include="img\SystemAdministrator\系统设置.png" />
+    <Content Include="img\SystemAdministrator\邮箱.png" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\MyAdd\CreateClass.js" />
-    <Content Include="Content\MyWorkPlace\div.css" />
+    <Content Include="Content\MyWorkPlace\ShowClassInfo.css" />
     <Content Include="Content\system-administrator-login.css" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -114,8 +129,13 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\MyAdd\select-classes-message.js" />
+    <Content Include="Scripts\MyAdd\show-classes-message.js" />
     <Content Include="Scripts\system-administrator-login.js" />
+    <Content Include="Scripts\SystemAdministrator\bootstrap-select.js" />
+    <Content Include="Scripts\SystemAdministrator\jquery.js" />
+    <Content Include="Scripts\SystemAdministrator\MajorManage.js" />
+    <Content Include="Scripts\SystemAdministrator\system-administrator.js" />
+    <Content Include="Scripts\SystemAdministrator\wangEditor.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -137,15 +157,19 @@
     <Compile Include="Controllers\SystemAdminController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="DAL\MyHelp\ClassesTableHelper.cs" />
+    <Compile Include="DAL\MyHelp\DepartmentTableHelper.cs" />
+    <Compile Include="DAL\MyHelp\MajorTableHelper.cs" />
     <Compile Include="DAL\SqlConnectionString.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="DAL\User_dal.cs" />
+    <Compile Include="Filter\HurricanFilter\SystemAdminActionFilterAttribute.cs" />
     <Compile Include="Filter\MyAuthorizeAttribute.cs" />
     <Compile Include="Filter\MyExceptionFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassesModels.cs" />
+    <Compile Include="Models\MajorModel.cs" />
     <Compile Include="Models\RegexMessage\RegexInfo.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,6 +188,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\ShowClassInfo.cshtml" />
+    <Content Include="Views\Home\Alter.cshtml" />
+    <Content Include="Views\SystemAdmin\SystemAdministrator.cshtml" />
+    <Content Include="Views\SystemAdmin\UploadTeacherTable.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -173,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ExcelFiles\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <PropertyGroup>

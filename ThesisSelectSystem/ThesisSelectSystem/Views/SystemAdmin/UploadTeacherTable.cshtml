@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UploadTeacherTable</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    
+</head>
+<body>
+<div>
+    <form id="uploadFile" enctype="multipart/form-data" action="/SystemAdmin/ReceiveFile" method="post">
+        <input type="file" name="files" id="fileName"/><br/>
+        <input type="submit" value="完成" id="uploadFileSub"/><br/>
+    </form>
+</div>
+    <script>
+        //$("#uploadFileSub").click(function () {
+        //    alert("刚才被点击了!");
+        //    $.ajax({
+        //        url: "",
+        //        type: "post",
+        //        dataType: "json",
+        //        successs: function(data) {
+        //            alert(data.tip);
+        //        },
+        //        error: function() {
+        //            alert("上传文件失败");
+        //        }
+        //    });
+        //});
+    </script>
+</body>
+</html>
