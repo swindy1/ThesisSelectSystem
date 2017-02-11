@@ -1,0 +1,585 @@
+body{
+	width: 100%;
+	height: 768px;
+	background-color: #FFFFFF;
+	font-size: 62.5%;
+	
+}
+.a{
+	text-decoration: none;
+	color: #228377;
+}
+header{
+	width: 100%;
+	height: 6%;
+	background-color: #62a4c9;
+}
+.adim{
+	float: left;
+	width: 15%;
+	height: auto;
+	padding: 1.25% 0 0 2%;
+}
+.adim figcaption{
+	font-size: 2.8em;
+	float: left;
+	color: #fffff8;
+}
+.glyphicon-leaf{
+	color: #fff;
+	font-size:3.5em;
+	float: left;
+	padding: 0 4%;
+}
+.setting{
+	width: 8%;
+	height: 100%;
+	float: right;
+	background-color: #63a8d1;
+}
+.setting a{
+	list-style: none;
+	text-decoration: none;
+}
+.glyphicon-tasks{
+	font-size: 3.5em;
+	padding: 13% 15%;
+	color: #fff;
+}
+.glyphicon-chevron-down{
+	font-size: 2.5em;
+	color: #fff;
+	padding: 13% 0 13% 15%;
+}
+.warn{
+	width: 4%;
+	padding: 0 4% 0 0;
+	height: 100%;
+	float: right;
+	background-color: #E4B9B9;
+	
+}
+.email{
+	width: 4%;
+	padding: 0 4% 0 0;
+	height: 100%;
+	float: right;
+	background-color:#2e8966 ;
+	
+}
+.glyphicon-envelope,.glyphicon-bell{
+	clear: both;
+	font-size: 3.0em;
+	color:#fff;
+	top: 34%;
+	padding: 0;
+	left: 1.0em;
+	
+}
+.badge{
+	float: left;
+	
+}
+.content{
+	height: 94%;
+	/*background-color: #000000;*/
+}
+.vertical{
+	width: 13%;
+	height: 100%;
+	float: left;
+	background-color: #f2f2f2;
+	font-size: 1.8em;
+	display: block;
+	border:  1px solid #C0C0C0;
+	
+}
+li{
+	list-style: none;
+	text-decoration: none;
+	
+}
+.vertical ul{
+	width: 100%;
+	font: "楷体";
+	font-size: 1.8em;
+	padding: 1% 7%;
+
+	
+}
+#more{
+	float: right;
+	padding: 3.5% 0;
+}
+.vertical li{
+	padding: 15% 0;
+	
+
+}
+.vertical li a{
+	width: 100%;
+	list-style: none;
+	color: #228377;
+	text-decoration: none;
+}
+
+.vertical ul li ul{
+	font-size: 1.0em;
+	list-style: none;
+	text-decoration: none;
+	padding: 3% 0;
+}
+.vertical ul li ul li{
+	width: 100%;
+	float: right;
+	padding: 8% 2%;
+}
+.apartment-setup{
+	display: none;
+}
+.system-setup{
+	display: none;
+	
+}
+/*将logo的位置调整一下,颜色改变一下*/
+.glyphicon-cog,.glyphicon-th-list,.glyphicon-pencil{
+	padding: 0  1% 0 0;
+	color: #5c555c;
+}
+.glyphicon-certificate,.glyphicon-plus,.glyphicon-tint
+,.glyphicon-plus,.glyphicon-minus,.glyphicon-eye-open,.glyphicon-remove,.glyphicon-th-large{
+	font-size: 0.6em;
+	color: #5c555c;
+	padding: 0 3%;
+}
+.contain{
+	width: 87%;
+	height: 100%;
+	float: right;
+	background-color: #FFFFFF;
+}
+.daohang{
+	width: 100%;
+	height: 7%;
+	background-color: #F2F2F2;
+	border:  1px solid #C0C0C0;
+}
+.search{
+	float: right;
+	height: 7%;
+	padding:  0.5% 0;
+	
+}
+.anm-main{
+	width: 100%;
+	height: 88%;
+	
+}
+.announcement{
+	width: 45%;
+	height: 100%;
+	float: left;
+}
+.anm{
+	width: 100%;
+	height: 12%;
+	
+}
+.form-group{
+	width: 100%;
+	height: 80%;
+}
+.glyphicon-edit{
+	font-size: 4.2em;
+	float: left;
+	padding: 4% 0 0 43%;
+}
+.anm span{
+	font-size: 4.0em;
+	float: right;
+	padding: 3% 29% 0 0;
+}
+.rang{
+	font-size: 3.5em;
+	float: left;
+	padding: 0 3% 0 25%;
+}
+.select{
+	float: right;
+	padding: 0 13% 0 0;
+}
+
+.topic{
+	width: 100%;
+	height: 20%;
+}
+.topic-font{
+	padding: 6% 0 0 25%;
+	float: left;
+	font-size: 3.5em;
+}
+.top-input{
+	margin: 5% 13% 0 0;
+	float:right;
+	width: 42%;
+}
+.anm-conten{
+	width: 100%;
+	height: 70%;
+	
+	
+}
+.anm-text{
+	float: right;
+	margin: 5% 3% 0 18%;
+	
+}
+.anm-text textarea{
+	height: 55%;
+}
+.btn-gr{
+	padding: 1% 13% 0 28%;
+}
+.mybtn{
+	/*padding: 0 5%;*/
+	margin: 0 5%;
+}
+.list{
+	width: 40%;
+	height: 100%;
+	float: right;
+	padding: 2%;
+	
+}
+.anm-list{
+	list-style: none;
+	text-decoration: none;
+	padding: 12%;
+}
+
+.glyphicon-list{
+	font-size: 4.5em;
+}
+.grade-main{
+	width: 100%;
+	height: 88%;
+	
+}
+.selectgrade{
+	width: 100%;
+	height: 60%;
+}
+.gradetext{
+	width: 40%;
+	float: left;
+	padding: 15% 0 0 20%;
+	font-size: 3.5em;
+	
+}
+.gradeform{
+	width: 60%;
+	padding:15% 20% 0 0 ;
+	float: right;
+}
+.addAparment{
+	width: 100%;
+	height: 88%;
+}
+#institution{
+	list-style: none;
+	width:350px;
+	height:635px;	
+	display: block;
+	font-size: 20px;
+	
+}
+.institute-list{
+	padding: 40px;
+	margin-left:372px;
+}
+#institution li{
+	border: 1px darkgrey solid;
+	height:40px;
+	width:350px;
+	text-align: center;
+	line-height: 35px;
+}
+.institute-list .title{
+	text-align: center;
+	height:45px;
+	background:#62a4c9;
+	color: #FFFFFF;
+	border:1px #ffffff solid;
+	font-weight: bold;
+}
+.adds input{
+	text-align: center;
+	height:45px;
+	background:#62a4c9;
+	color: #FFFFFF;
+	border:1px #ffffff solid;
+	font-weight: bold;
+}
+#addname input{
+	background:#fff;
+	border:1px #ffffff solid;
+}
+.adds input[type="text"]{
+	font-weight: 500;
+}
+.adds input{
+	width:350px;		
+}
+.adds input:hover{
+	background: #85b2cb;
+}
+.adds input[type="text"]:focus{
+	background:#FFFFFF;
+	color: black;
+}
+
+.deleteAparment{
+	width: 100%;
+	height: 88%;
+}
+
+#institution1{
+	list-style: none;
+	height:635px;	
+	display: block;
+	font-size: 20px;
+}
+#institution1 li{
+	border: 1px darkgrey solid;
+	height:40px;
+	width:350px;
+	padding-left:3px;
+	line-height: 35px;
+}
+#institution1 a{
+	float: right;
+	padding-right:3px;
+}
+
+.addAminstrator{
+	width: 100%;
+	height: 88%;
+}
+#administrator{
+	height:635px;			
+	display: block;
+	font-size: 15px;
+}
+#administrator .table-list1{
+	width:400px;
+	height:120px;
+	text-indent: 4px;
+	float:left;
+	margin-top:40px;
+	margin-left:205px;
+}
+.tab-content caption{
+	text-align: center;
+	font-size: 20px;
+	color: black;
+}
+.tab-content th{
+	background:#62a4c9;
+}
+#administrator .table-list2{
+	height:200px;
+	float:right;
+	margin-right:205px;
+	margin-top:40px;
+}
+.table-list2 button[type="submit"]{
+	margin-right:65px;
+}
+.table-list2 .la{
+	text-align: right;
+	font-weight: bold;
+}
+.table-list2 input{
+	border: 1px #62a4c9 solid;
+}
+.table-list2 button{
+	
+	background:#62a4c9;
+	border: 1px grey solid;
+}
+.deleteAminstrator{
+	width: 100%;
+	height: 88%;
+}
+#adminstrator1{
+	height:635px;			
+	display: block;
+	font-size: 15px;
+}
+#adminstrator1 .table-list{
+	width:550px;
+	height:120px;
+	text-indent: 4px;
+	margin-top:40px;
+	float: left;
+	margin-left:312px;
+}
+.subject-setup{
+	width: 100%;
+	height: 88%;
+}
+
+#major-setup{
+	height:635px;		
+	display: block;
+	font-size: 15px;
+	margin-left: 110px;
+	padding-top:40px;
+}
+#major-setup .table-list3{
+	width:430px;
+	text-indent: 4px;
+	height: 140px;
+	float: left;
+	margin-bottom: 20px;
+}
+#major-setup .table-list3 input{
+	margin-left:10px;
+}
+#major-setup .delete{
+	float: right;
+	margin-right:5px;
+}
+#major-setup .table-list4{
+	height:130px;width:350px;
+	
+}
+#major-setup .table-list4 button{
+	float: right;
+	background:#62a4c9;
+	border: 1px grey solid;
+}
+#major-setup .table-list4 button:hover{
+	background: #8ec1de;
+}
+.table-list4 input{
+	border: 1px #62a4c9 solid;
+}
+#major-setup .table-list5{
+	margin-right: 110px;
+	height:140px;width:430px;
+	text-indent: 4px;
+	float: right;
+}
+.addform{
+	width:350px;
+}
+.table-list5 input{
+	margin-left: 10px;
+}
+.table-list5 a:hover{
+	text-decoration: none;
+}
+
+
+
+
+.intersetup{
+	width: 100%;
+	height: 88%;
+}
+.location,.backcolor{
+	width: 100%;
+	height: 30%;
+    padding-top: 8%;
+}
+.location span{
+	width: 50%;
+	height: 30%;
+	padding: 0 5% 0 32%;
+	float: left;
+	font-family: "宋体";
+	font-size: 3.5em;
+}
+.backcolor span{
+	width: 50%;
+	height: 30%;
+	padding: 0 5% 0 20%;
+	float: left;
+	font-family: "宋体";
+	font-size: 3.5em;
+}
+.but{
+	width: 50%;
+	height: 70%;
+	padding: 0 19% 0 0;
+	float: right;
+	
+}
+.color{
+	width: 50%;
+	height: 100%;
+	padding: 0 19% 0 0;
+	float: right;
+}
+.btn1{
+	float: left;
+}
+.color1{
+	width: 9%;
+	height: 30%;
+	background-color:red;
+	border: 0.4em solid #EBCCD1;
+	margin: 0 15% 0 0;
+	float: right;
+}
+.color2{
+	width: 9%;
+	height: 30%;
+	margin: 0 6% 0 0;
+	background-color:brown;
+	border: 0.4em solid #EBCCD1;
+	float: right;
+}
+
+.color3{
+	width: 9%;
+	height: 30%;
+	margin: 0 6% 0 0;
+	
+	background-color:blueviolet;
+	border: 0.4em solid #EBCCD1;
+	float: right;
+}
+
+.color4{
+	width: 9%;
+	height: 30%;
+	margin: 0 6% 0 0;
+	background-color:#445588;
+	border: 0.4em solid #EBCCD1;
+	float: right;
+}
+
+
+
+.footer{
+	width: 100%;
+	height: 5%;
+	background-color: #CCCCCC;
+	font-size: 1.9em;
+}
+.limits{
+	width: 80%;
+	float: left;
+}
+.limits p{
+	margin: 0 auto;
+	padding: 1% 0;
+	text-align: right;
+}
+#time{
+	width: 20%;
+	float: right;
+	text-align: center;
+}

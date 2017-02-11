@@ -54,6 +54,7 @@ namespace ThesisSelectSystem.Controllers
         {
             string Account = Request["Account"];
             string Password = Request["Password"];
+            Session["Account"] = Account;
 
             UserLogin_bll user = new UserLogin_bll();
             bool login = user.LoginYes(Account, Password);

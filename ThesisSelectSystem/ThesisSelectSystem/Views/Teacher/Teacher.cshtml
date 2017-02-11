@@ -1,0 +1,388 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>教师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content//bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/teacher.css" />
+</head>
+<body>
+    <header>
+        <div class="admin">
+            <a href="#">
+                <span class="glyphicon glyphicon-leaf"></span>
+                <span class="adminstrastor">梁婉玲</span>
+            </a>
+        </div>
+        <div class="setting">
+            <a href="#">
+                <span class="glyphicon glyphicon-tasks"></span>
+            </a>
+        </div>
+        <div class="warns">
+            <a href="#">
+                <span class="glyphicon glyphicon-bell"></span>
+            </a>
+        </div>
+
+    </header>
+
+    <div class="body">
+
+        <div class="navigation">
+            <ul>
+                <li>
+                    <button class="btn btn1">
+                        <span class="glyphicon glyphicon-certificate"></span>
+                        选择学生
+                        <img id="more" src="~/img/more.png" />
+                    </button>
+                    <ul id="student1">
+                        <li><button class="btn btn3"><span class="glyphicon glyphicon-plus"></span>自拟课题学生</button></li>
+                        <li><button class="btn btn3"><span class="glyphicon glyphicon-plus"></span>我拟课题的学生</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="btn btn1">
+                        <span class="glyphicon glyphicon-briefcase"></span>
+                        课题管理
+                        <img id="more" src="~/img/more.png" />
+                    </button>
+                    <ul id="topic1">
+                        <li><button class="btn btn3"><span class="glyphicon glyphicon-eye-open"></span>查看选题情况</button></li>
+                        <li><button class="btn btn3"><span class="glyphicon glyphicon-th-list"></span>课题汇总</button></li>
+                        <li><button class="btn btn3"><span class="glyphicon glyphicon-minus"></span>删除学生</button></li>
+                        <li><button class="btn btn3"><span class="glyphicon glyphicon-trash"></span>删除课题</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="btn btn2">
+                        <span class="glyphicon glyphicon-tree-deciduous"></span>
+                        拟定选题
+                    </button>
+                </li>
+            </ul>
+
+
+        </div>
+
+        <div class="contents">
+
+            <div class="search">
+                <div class="searchbody col-xs-2">
+                    <div class="input-group">
+                        <input class="form-control" type="search" name="search" id="search" placeholder="search" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contain">
+
+                <div class="selectstudent">
+                    <div class="zini">
+                        <div class="student2">
+                            <form action="#" method="post">
+                                <table id="student2" cellspacing="20">
+                                    <caption>未选择学生列表</caption>
+                                    <tr><th class="th1">序号</th><th class="th1">学生姓名</th><th class="th2">课题名称</th><th class="th1">选择该学生</th></tr>
+                                    <tr><td class="th1">001</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">002</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">003</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">004</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">005</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">006</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">007</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">008</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">009</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">010</td><td class="th1">梁婉玲</td><td class="th2">基于H5的小游戏设置平台</td><td class="th1"><input type="checkbox" /></td></tr>
+                                </table>
+                            </form>
+                            <div class="button"><button class="btn btn-success">确认提交</button></div>
+                        </div>
+
+                        <div class="student3">
+                            <form action="#" method="post">
+                                <table id="student4">
+                                    <caption>已选择的学生列表</caption>
+                                    <tr><th class="th1">序号</th><th class="th1">学生姓名</th><th class="th2">班级</th><th class="th2">课题名称</th><th class="th1">课题性质</th></tr>
+                                    <tr><td class="th1">001</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">002</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">003</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">004</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">005</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">006</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">007</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">008</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">009</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+                                    <tr><td class="th1">010</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">自拟</td></tr>
+
+
+                                </table>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="wode">
+                        <div class="student2">
+                            <form action="#" method="post">
+                                <table id="student5" cellspacing="20">
+                                    <caption>未选择学生列表</caption>
+                                    <tr><th class="th1">序号</th><th class="th1">学生姓名</th><th class="th2">课题名称</th><th class="th1">选择该学生</th></tr>
+                                    <tr><td class="th1">001</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">002</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">003</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">004</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">005</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">006</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">007</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">008</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">009</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                    <tr><td class="th1">010</td><td class="th1">陈志桓</td><td class="th2">毕业选题系统</td><td class="th1"><input type="checkbox" /></td></tr>
+                                </table>
+                            </form>
+                            <div class="button"><button class="btn btn-success">确认提交</button></div>
+                        </div>
+
+                        <div class="student3">
+                            <form action="#" method="post">
+                                <table id="student6">
+                                    <caption>已选择的学生列表</caption>
+                                    <tr><th class="th1">序号</th><th class="th1">学生姓名</th><th class="th2">班级</th><th class="th2">课题名称</th><th class="th1">课题性质</th></tr>
+                                    <tr><td class="th1">001</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">002</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">003</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">004</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">005</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">006</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">007</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">008</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">009</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+                                    <tr><td class="th1">010</td><td class="th1">梁婉玲</td><td class="th2">14计科2班</td><td class="th2">基于H5的小游戏平台</td><td class="th1">我拟</td></tr>
+
+
+                                </table>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="manage">
+                    <div class="situation">
+
+                        <div class="property">
+                            <div class="span">
+                                <span>课题性质分布</span>
+                            </div>
+                            <div class="canvas">
+                                <div class="canvas1" id="canvas1">
+                                    <canvas id="mycanvas1"></canvas>
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail1">
+                                    <form action="#" method="post">
+                                        <table>
+                                            <tr><th class="th3">课题性质</th><th class="th3">百分比</th></tr>
+                                            <tr><td class="th3">自拟</td><td>20%</td></tr>
+                                            <tr><td class="th3">我拟</td><td>80%</td></tr>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="class">
+                            <div class="span">
+                                <span>课题性质分布</span>
+                            </div>
+                            <div class="canvas">
+                                <div class="canvas1">
+                                    <!--<canvas id="mycanvas1"></canvas>-->
+                                </div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail1">
+                                    <form action="#" method="post">
+                                        <table>
+                                            <tr><th class="th3">课题性质</th><th class="th3">百分比</th></tr>
+                                            <tr><td class="th3">自拟</td><td>20%</td></tr>
+                                            <tr><td class="th3">我拟</td><td>80%</td></tr>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="allofthetopic">
+                        <div class="topic1">
+                            <form action="#" method="post">
+                                <table>
+                                    <caption>我选择的学生列表</caption>
+                                    <tr><th class="th3">序号</th><th class="th3">姓名</th><th class="th4">班级</th><th class="th5">课题名称</th><th class="th4">课题性质</th></tr>
+                                    <tr><td class="th3">001</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">002</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">003</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">004</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">005</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">005</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">006</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">007</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">008</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                    <tr><td class="th3">009</td><td class="th3">梁婉玲</td><td class="th4">14计科2班</td><td class="th5">基于H5的小游戏开发平台</td><td class="th4">自拟</td></tr>
+                                </table>
+                            </form>
+                            <div class="btn-gr1">
+                                <button class="btn btn-success">下一页</button>
+                                <button class="btn btn-danger">上一页</button>
+                                <button class="btn btn-success">首页</button>
+                                <button class="btn btn-danger">尾页</button>
+
+
+
+                            </div>
+                        </div>
+                        <div class="topic2">
+                            <form action="#" method="post">
+                                <table>
+                                    <caption>我拟定的课题列表</caption>
+                                    <tr><th class="th3">序号</th><th class="th5">课题名称</th><th class="th4">课题归类</th></tr>
+                                    <tr><td class="th3">001</td><td class="th5">移动互联网下的信息安全问题</td><td class="th4">移动应用</td></tr>
+                                    <tr><td class="th3">002</td><td class="th5">移动互联网下的信息安全问题</td><td class="th4">移动应用</td></tr>
+                                    <tr><td class="th3">003</td><td class="th5">移动互联网下的信息安全问题</td><td class="th4">移动应用</td></tr>
+                                    <tr><td class="th3">004</td><td class="th5">移动互联网下的信息安全问题</td><td class="th4">移动应用</td></tr>
+                                    <tr><td class="th3">005</td><td class="th5">移动互联网下的信息安全问题</td><td class="th4">移动应用</td></tr>
+                                    <tr><td class="th3">006</td><td class="th5">移动互联网下的信息安全问题</td><td class="th4">移动应用</td></tr>
+                                    <tr><td class="th3">007</td><td class="th5">移动互联网下的信息安全问题</td><td class="th4">移动应用</td></tr>
+                                    <tr><td class="th3">008</td><td class="th5">移动互联网下的信息安全问题</td><td class="th4">移动应用</td></tr>
+
+                                </table>
+                            </form>
+                            <div class="btn-gr1">
+                                <button class="btn btn-success">下一页</button>
+                                <button class="btn btn-danger">上一页</button>
+                                <button class="btn btn-success">首页</button>
+                                <button class="btn btn-danger">尾页</button>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deletestudent">
+                        <div class="delete1">
+                            <form action="#" method="post">
+                                <table>
+                                    <tr><th>序号</th><th>姓名</th><th>课题名称</th><th class="th6">删除</th></tr>
+                                    <tr><td>01</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-info">删除</button></td></tr>
+                                    <tr><td>02</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-success">删除</button></td></tr>
+                                    <tr><td>03</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-info">删除</button></td></tr>
+                                    <tr><td>04</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-success">删除</button></td></tr>
+                                    <tr><td>05</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-info">删除</button></td></tr>
+                                    <tr><td>06</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-success">删除</button></td></tr>
+                                    <tr><td>07</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-info">删除</button></td></tr>
+                                    <tr><td>08</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-success">删除</button></td></tr>
+                                    <tr><td>09</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-info">删除</button></td></tr>
+                                    <tr><td>10</td><td>梁婉玲</td><td>公共场合机器扫地人的研究</td><td class="th6"><button class="btn btn-success">删除</button></td></tr>
+
+                                </table>
+                            </form>
+                            <div class="btn-gr1">
+                                <button class="btn btn-default">下一页</button>
+                                <button class="btn btn-success">上一页</button>
+                                <button class="btn btn-default">首页</button>
+                                <button class="btn btn-success">尾页</button>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deletetopic">
+                        <div class="delete1">
+                            <form action="#" method="post">
+                                <table>
+                                    <tr><th>序号</th><th>课题名称</th><th>课题类型</th><th class="th6">删除</th></tr>
+                                    <tr><td>01</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>02</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>03</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>04</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>05</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>06</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>07</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>08</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>09</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+                                    <tr><td>10</td><td>多媒体积件管理库的开发与应用</td><td>应用研究类</td><td class="th6"><button class="btn btn-primary">删除</button></td></tr>
+
+                                </table>
+
+                            </form>
+                            <div class="btn-gr1">
+                                <button class="btn btn-success">下一页</button>
+                                <button class="btn btn-default">上一页</button>
+                                <button class="btn btn-success">首页</button>
+                                <button class="btn btn-default">尾页</button>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="protocol">
+                    <div class="pro">
+                        <div class="protocol1">
+                            <form action="#" method="post">
+                                <div class="name">
+                                    <span>课题名称</span><input class="form-control" />
+                                </div>
+                                <div class="propeties">
+                                    <span>课题类型</span>
+                                    <select>
+                                        <option>应用研究类</option>
+                                        <option>基础研究类</option>
+                                    </select>
+                                </div>
+                                <div class="descrition">
+                                    <span>说明</span><textarea class="form-control"></textarea>
+                                </div>
+
+                            </form>
+                            <div class="probtn">
+                                <button class="btn btn-success">确认提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="time">
+                <div class="ownership">版权所有 &copy;惠州学院信息科学技术学院 Copyright 2017, All rights reserved.</div>
+                <div class="realtime">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="~/Scripts/SystemAdministrator/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/teacher.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+
+</html>
+
+

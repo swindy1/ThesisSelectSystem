@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UploadTeacherTable</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/SystemAdministrator/ajaxfileupload.js"></script>
+</head>
+<body>
+<div>
+    <form id="uploadFile" enctype="multipart/form-data" method="post">
+        <input type="file" name="files" id="fileName"/><br/>
+        <input type="submit" value="完成" id="uploadFileSub"/><br/>
+    </form>
+</div>
+<div>
+    <input type="file" name="teacherInfo" id="teacherInfo" /><br />
+    <input type="button" value="上传" id="uploadTeacherInfo" /><br />
+</div>
+    <script>
+        $("#uploadFileSub").click(function () {
+            event.preventDefault();
+            alert("刚才被点击了!");
+            var url = "/SystemAdmin/ReceiveFile";
+            var type = "post";
+            var dataType = "json";
+            var elementId = "fileName";
+
+            function success(data) {
+                alert("服务器端返回的信息为:"+data.tip);
+            };
+
+            function error(e, status) {
+                alert(e);
+                alert(status);
+            }
+
+            ajaxFileUpload(url, type, elementId, dataType, success, error);
+        });
+
+        $("#uploadTeacherInfo").click(function() {
+            event.preventDefault();
+            alert("刚才被点击了!");
+            var url = "/SystemAdmin/ImportTeacherInfo";
+            var type = "post";
+            var dataType = "json";
+            var elementId = "teacherInfo";
+
+            function success(data) {
+                alert("服务器端返回的信息为:" + data.tip);
+            };
+
+            function error(e, status) {
+                alert(e);
+                alert(status);
+            }
+
+            ajaxFileUpload(url, type, elementId, dataType, success, error);
+        });
+
+        function ajaxFileUpload(url,type,elementId,dataType,successfulResponse,errorResponse) {
+
+            $.ajaxFileUpload
+            (
+                {
+                    url: url, //用于文件上传的服务器端请求地址
+                    type: type,//type有post和get两种方式 
+                    secureuri: false, //是否需要安全协议，一般设置为false
+                    fileElementId: elementId, //文件上传域的ID
+                    dataType: dataType, //返回值类型 一般设置为json
+                    success: successfulResponse,
+                    error: errorResponse
+                }
+            );
+           
+        }
+    </script>
+</body>
+</html>

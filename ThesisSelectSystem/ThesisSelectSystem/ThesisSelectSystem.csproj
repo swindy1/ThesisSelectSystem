@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,10 +39,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>F:\毕选数据库\dll程序集\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Model">
+      <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -85,9 +96,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-select.min.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\MyWorkPlace\Alter-Class-Message.css" />
+    <Content Include="Content\MyWorkPlace\bootstrap.min.css" />
+    <Content Include="Content\MyWorkPlace\CreateClasses.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\SystemAdministrator\bootstrap-select.css" />
+    <Content Include="Content\SystemAdministrator\system-administrator.css" />
+    <Content Include="Content\SystemAdministrator\wangEditor.css" />
+    <Content Include="Content\teacher.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon.svg" />
+    <Content Include="img\more.png" />
+    <Content Include="img\SystemAdministrator\more.png" />
+    <Content Include="img\SystemAdministrator\提醒.png" />
+    <Content Include="img\SystemAdministrator\管理员.png" />
+    <Content Include="img\SystemAdministrator\系统设置.png" />
+    <Content Include="img\SystemAdministrator\邮箱.png" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\MyAdd\CreateClass.js" />
+    <Content Include="Content\MyWorkPlace\ShowClassInfo.css" />
     <Content Include="Content\system-administrator-login.css" />
     <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -98,7 +138,16 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MyAdd\show-classes-message.js" />
     <Content Include="Scripts\system-administrator-login.js" />
+    <Content Include="Scripts\SystemAdministrator\ajaxfileupload.js" />
+    <Content Include="Scripts\SystemAdministrator\bootstrap-select.js" />
+    <Content Include="Scripts\SystemAdministrator\jquery.js" />
+    <Content Include="Scripts\SystemAdministrator\MajorManage.js" />
+    <Content Include="Scripts\SystemAdministrator\system-administrator.js" />
+    <Content Include="Scripts\SystemAdministrator\wangEditor.js" />
+    <Content Include="Scripts\teacher.js" />
+    <Content Include="TableMappingObj.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -110,6 +159,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\ExcelFileBusinessOperation.cs" />
     <Compile Include="BLL\UserLogin_bll.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ExceptionController.cs" />
@@ -119,14 +169,23 @@
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SystemAdminController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="DAL\DbOperation.cs" />
+    <Compile Include="DAL\MyHelp\ClassesTableHelper.cs" />
+    <Compile Include="DAL\MyHelp\DepartmentTableHelper.cs" />
+    <Compile Include="DAL\MyHelp\MajorTableHelper.cs" />
+    <Compile Include="DAL\MyHelp\TeacherInfoQuery.cs" />
     <Compile Include="DAL\SqlConnectionString.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="DAL\User_dal.cs" />
+    <Compile Include="Filter\HurricanFilter\SystemAdminActionFilterAttribute.cs" />
     <Compile Include="Filter\MyAuthorizeAttribute.cs" />
     <Compile Include="Filter\MyExceptionFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClassesModels.cs" />
+    <Compile Include="Models\MajorModel.cs" />
+    <Compile Include="Models\RegexMessage\RegexInfo.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -139,6 +198,15 @@
     <Content Include="Views\Teacher\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Inspector\Index.cshtml" />
+    <Content Include="Views\Share\share.cshtml" />
+    <Content Include="Views\Home\CreateClasses.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\ShowClassInfo.cshtml" />
+    <Content Include="Views\Home\Alter.cshtml" />
+    <Content Include="Views\SystemAdmin\SystemAdministrator.cshtml" />
+    <Content Include="Views\SystemAdmin\UploadTeacherTable.cshtml" />
+    <Content Include="Views\Teacher\Teacher.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,6 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ExcelFiles\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <PropertyGroup>
