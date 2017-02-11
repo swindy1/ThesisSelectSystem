@@ -14,5 +14,10 @@ namespace ThesisSelectSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult Teacher()
+        {
+            return View();
+        }
 	}
 }

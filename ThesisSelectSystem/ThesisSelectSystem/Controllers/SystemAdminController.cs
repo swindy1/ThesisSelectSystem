@@ -1,24 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Model;
+using ThesisSelectSystem.BLL;
 using ThesisSelectSystem.DAL;
 using ThesisSelectSystem.DAL.MyHelp;
+using System.Text;
 
 namespace ThesisSelectSystem.Controllers
 {
     public class SystemAdminController : Controller
     {
-        //
-        // GET: /SystemAdmin/
+        private string filename;
+        private static string xmlPath = AppDomain.CurrentDomain.BaseDirectory + "TableMappingObj.xml";
+        private static string asmPathAndName = AppDomain.CurrentDomain.BaseDirectory + @"\bin\Model.dll";
+
+
         public ActionResult Index()
         {
             string account = (string)Session["Account"];
             ViewBag.data = account;
             return View();
         }
+
+
 
         /// <summary>
         /// 初始化系统管理员界面信息
@@ -35,6 +45,24 @@ namespace ThesisSelectSystem.Controllers
             List<string> departList = new DepartmentTableHelper().ListDepartmentName();
             ViewBag.departments = departList;
 
+            SqlParameter parameter=new SqlParameter("@condition",SqlDbType.NVarChar);
+            parameter.Value = "管理员";
+
+            Dictionary<string, string> teachersName =
+                new TeacherInfoQuery().QueryTeacherNameAndAccount();
+            ViewBag.teacherName = teachersName.Values.ToArray();
+            ViewBag.teacherID = teachersName.Keys.ToArray();
+            ViewBag.teacherCount = teachersName.Values.ToArray().Length;
+
+            TeacherInfoDetail[] teacherInfoDetails =
+                new TeacherInfoQuery().QueryTeacherInfoDetails(new SqlParameter[] {parameter});
+            string[] adminID = teacherInfoDetails.Select(entity => (entity.id)).ToArray();
+            string[] adminName = teacherInfoDetails.Select(entity => (entity.name)).ToArray();
+            string[] departmentName = teacherInfoDetails.Select(entity => (entity.departmentName)).ToArray();
+            ViewBag.adminIds = adminID;
+            ViewBag.adminNames = adminName;
+            ViewBag.departmentNames = departmentName;
+            ViewBag.adminCount = adminID.Length;
             return View();
         }
 
@@ -98,33 +126,53 @@ namespace ThesisSelectSystem.Controllers
             return Json(new {result = message});
         }
 
-
+        /// <summary>
+        ///  测试导入教师信息页面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult UploadTeacherTable()
         {
 
             return View();
         }
 
+        
+        /// <summary>
+        /// 接收客户端上传的Excel文件并把Excel表格里的数据导入数据库相应的表
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ReceiveFile()
         {
             HttpPostedFileBase file = Request.Files["files"];
-            string filename = Path.GetFileName(file.FileName);
+            filename = Path.GetFileName(file.FileName);
             string fileExtensionName = Path.GetExtension(file.FileName);
+            string serverFileName = ExcelFileBusinessOperation.CreatePrefixion()+ filename;
+            string virtualPath = "/ExcelFiles/" + serverFileName;
+            
+            string savePath = Server.MapPath(virtualPath);
             if (fileExtensionName == ".xls" || fileExtensionName == ".xlsx" || fileExtensionName == ".xlsm")
             {
                 try
                 {
-                    string path = "/ExcelFiles/" + Guid.NewGuid() + filename;
-                    string savePath = Server.MapPath(path);
                     file.SaveAs(savePath);
+                    DbOperation.SetXmlPath(xmlPath);
+                    bool result;
+                    var students = ExcelFileBusinessOperation.ExcelToList(savePath, "Sheet1", asmPathAndName, "Model.Student");
+                    foreach (var student in students)
+                    {
+                        if (student is Model.Student)
+                        {
+                            DbOperation.Save(student, "student", out result);
+                            User_dal.CreateNewUser(((Student) student).sno);
+                        }
+                    }
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("出现异常");
+                    
                     throw;
-                }
-                
-                return Json(new {tip = "上传文件成功"});
+                } 
+                return Json(new {tip = "导入学生信息成功"});
             }
             else
             {
@@ -135,5 +183,91 @@ namespace ThesisSelectSystem.Controllers
         }
 
 
+        /// <summary>
+        /// 导入教师信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportTeacherInfo()
+        {
+            HttpPostedFileBase file = Request.Files["teacherInfo"];
+            filename = Path.GetFileName(file.FileName);
+            string fileExtensionName = Path.GetExtension(file.FileName);
+            string serverFileName = ExcelFileBusinessOperation.CreatePrefixion() + filename;
+            string virtualPath = "/ExcelFiles/" + serverFileName; 
+            string savePath = Server.MapPath(virtualPath);
+            if (fileExtensionName == ".xls" || fileExtensionName == ".xlsx" || fileExtensionName == ".xlsm")
+            {
+                try
+                {
+                    file.SaveAs(savePath); 
+                    List<Object> teachers = ExcelFileBusinessOperation.ExcelToList(savePath, "teacher", asmPathAndName, "Model.Teacher");
+                    DbOperation.SetXmlPath(xmlPath);
+                    foreach (var teacher in teachers)
+                    {
+                        bool result;
+                        if (teacher is Teacher)
+                        {
+                            DbOperation.Save(teacher, "teacher", out result);
+                            User_dal.CreateNewUser(((Teacher) teacher).id ,"老师");
+
+
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    return Json(new { tip = "导入教师信息出错" });
+                    throw;
+                }
+                return Json(new { tip = "成功导入教师信息" });
+            }
+            else
+            {
+                string errorMessage = "请不要上传excel以外的文件";
+                return Json(new { tip = errorMessage });
+            }
+           
+        }
+
+
+
+        public JsonResult AddAdmin()
+        {
+            var teacherId = Request["id"];
+            bool result;
+            UserInfo user=new UserInfo();
+            user.account = teacherId;
+            user.roles = "管理员";
+            DbOperation.SetXmlPath(xmlPath);
+            result = DbOperation.Update(user,"userinfo");
+            if (result)
+            {
+                return Json(new { tip = "成功添加管理员" });
+            }
+            else
+            {
+                return Json(new { tip = "添加管理员失败" });
+            }
+        }
+
+        public ActionResult DeleteAdmin()
+        {
+            var adminId = Request["id"];
+            
+            UserInfo user=new UserInfo();
+            user.account = adminId;
+            user.roles = "教师";
+            DbOperation.SetXmlPath(xmlPath);
+            bool result = DbOperation.Update(user,"userinfo");
+            if (result)
+            {
+                return Json(new { tip = "成功删除管理员" });
+            }
+            else
+            {
+                return Json(new { tip = "操作失败！" });
+            }
+            
+        }
     }
 }

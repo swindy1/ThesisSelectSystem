@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/SystemAdministrator/system-administrator.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/SystemAdministrator/wangEditor.css" />
 
+    
 </head>
 <body>
 
@@ -128,22 +129,11 @@
                                 <span class="rang">公告范围</span>
                                 <div class="select">
                                     <select class="selectpicker show-tick" multiple value="<%=search.type||''%>" required>
-                                        <option>信息科学与技术学院</option>
-                                        <option>文学与传媒学院</option>
-                                        <option>旭日广东服装学院</option>
-                                        <option>电子信息与电气工程学院</option>
-                                        <option>化学与材料工程学院</option>
-                                        <option>经济管理学院</option>
-                                        <option>建筑与土木工程学院</option>
-                                        <option>地理与旅游学院</option>
-                                        <option>美术与设计学院</option>
-                                        <option>数学与大数据学院</option>
-                                        <option>体育学院</option>
-                                        <option>外国语学院</option>
-                                        <option>音乐学院</option>
-                                        <option>政法学院</option>
-                                        <option>马克思主义学院</option>
-                                        <option>教育科学学院</option>
+                                        @*<option>信息科学与技术学院</option>*@
+                                        @foreach (var department in ViewBag.departments)
+                                        {
+                                            <option>@department</option>
+                                        }
                                         <option>全选</option>
                                     </select>
                                 </div>
@@ -172,11 +162,11 @@
                 </div>
 
                 <div class="list">
-                    <!--<i class="glyphicon glyphicon-list"></i>-->
+                    <i class="glyphicon glyphicon-list"></i>
                     <span><h2>公告列表</h2></span>
 
                     <h1>暂无公告</h1>
-                    <!--<ul class="anm-list">
+                    <ul class="anm-list">
                         <li><a href="#">[公告主题]省略文.....公告时间</a></li>
                         <li><a href="#">[公告主题]省略文.....公告时间</a></li>
                         <li><a href="#">[公告主题]省略文.....公告时间</a></li>
@@ -185,7 +175,7 @@
                         <li><a href="#">[公告主题]省略文.....公告时间</a></li>
                         <li><a href="#">[公告主题]省略文.....公告时间</a></li>
 
-                    </ul>-->
+                    </ul>
                 </div>
             </div>
             <div class="grade-main">
@@ -223,10 +213,10 @@
                         <li class="title" id="schoollist">学院列表</li>
                         @foreach (var department in ViewBag.departments)
                         {
-                            <li>@department</li>
+                            <li class="adds">@department</li>
                         }
-                        <li class="adds" id="addname"><input type="text" placeholder="请输入学院名字" id="addDepartment"></li>
-                        <li class="adds"><input type="button" value="添加" id="addepart"></li>
+                        <li class="adds" id="addname"><input type="text" placeholder="请输入学院名字" id="addDepartment" /></li>
+                        <li class="adds"><input type="button" value="添加" id="addepart" /></li>
                     </ul>
                 </div>
             </div>
@@ -235,12 +225,10 @@
                 <div id="institution1" class="tab-pane">
                     <ul class="institute-list">
                         <li class="title">学院列表</li>
-                        <li>信息科学技术学院<a href="#">删除</a></li>
-                        <li>音乐学院<a href="#">删除</a></li>
-                        <li>经济管理学院<a href="#">删除</a></li>
-                        <li>美术学院<a href="#">删除</a></li>
-                        <li>政法学院<a href="#">删除</a></li>
-
+                        @foreach (var department in ViewBag.departments)
+                        {
+                            <li>@department</li><button type="button" name="deleteDepartment" class="btn btn-default">删除</button>
+                        }
                     </ul>
                 </div>
             </div>
@@ -248,40 +236,70 @@
             <div class="addAminstrator">
                 <div id="administrator" class="tab-pane">
 
-                    <table class="table-list1" border="1">
+                    <table class="table-list1" border="1" id="adminList">
                         <caption>管理员列表</caption>
+                        @{ string admin = "admin";}
                         <tr><th>编号</th><th>姓名</th><th>所属学院/部门</th></tr>
-                        <tr><td>001</td><td>林俊健</td><td>信息科学技术学院</td></tr>
+                        @for (int i = 0; i < ((int)ViewBag.adminCount); i++)
+                        {
+                            <tr id="@ViewBag.adminIds[i]"><td>@ViewBag.adminIds[i]</td><td>@ViewBag.adminNames[i]</td><td>@ViewBag.departmentNames[i]</td></tr>
+                        }
+                        @*<tr><td>001</td><td>林俊健</td><td>信息科学技术学院</td></tr>
                         <tr><td>002</td><td>江楚坚</td><td>信息科学技术学院</td></tr>
-                        <tr><td>003</td><td>吴一帆</td><td>电子信息与电信工程学院</td></tr>
+                        <tr><td>003</td><td>吴一帆</td><td>电子信息与电信工程学院</td></tr>*@
                     </table>
 
                     <table class="table-list2">
                         <caption>添加管理员</caption>
                         <form>
                             <tr>
-                                <td class="la">姓名：</td>
-                                <td>
-                                    <input type="text" class="form-control" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="la">编号：</td>
-                                <td>
-                                    <input type="text" class="form-control" />
-                                </td>
-                            </tr>
-                            <tr>
                                 <td class="la">所属学院/系：</td>
                                 <td>
-                                    <input type="text" class="form-control" />
+                                    @*<input type="text" class="form-control"/>*@
+                                    <select id="departmentNameSelect">
+                                        @foreach (var department in ViewBag.departments)
+                                        {
+                                            <option >@department</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                            @*<tr>
+                                <td class="la">编号：</td>
+                                <td>
+                                    
+                                    @{  int index = 0;
+                                        string tid = "tid";
+                                        string tname = "tname";
+                                      }
+                                    <select id="teacherIdList">
+                                        
+                                        @foreach (var id in ViewBag.teacherID)
+                                        {
+                                            <option id="@tid@index">@id</option>
+                                            index++;
+                                        }
+                                    </select>
+                                </td>
+                            </tr>*@
+                            
+                            <tr>
+                                <td class="la">姓名：</td>
+                                <td>
+                                   @* <input type="text" class="form-control"/>*@
+                                    <select id="teacherNameList">
+                                        @for (int i = 0; i < ViewBag.teacherCount; i++)
+                                        {
+                                            <option id="@ViewBag.teacherID[i]">@ViewBag.teacherName[i]</option>
+                                        }
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <button class="btn" type="submit">重置</button>
-                                    <button class="btn" type="reset">添加</button>
+                                    <button class="btn" type="reset">重置</button>
+                                    <button class="btn"  id="addAdminBtn">添加</button>
                                 </td>
                             </tr>
                         </form>
@@ -292,12 +310,22 @@
 
             <div class="deleteAminstrator">
                 <div id="adminstrator1" class="tab-pane">
-                    <table class="table-list" border="1">
+                    <table class="table-list" border="1" id="deleteAdminTb">
                         <caption>管理员列表</caption>
                         <tr><th></th><th>编号</th><th>姓名</th><th>所属学院/部门</th></tr>
-                        <tr><td><a href="#">删除</a></td><td>001</td><td>林俊健</td><td>信息科学技术学院</td></tr>
-                        <tr><td><a href="#">删除</a></td><td>002</td><td>江楚坚</td><td>信息科学技术学院</td></tr>
-                        <tr><td><a href="#">删除</a></td><td>003</td><td>吴一帆</td><td>电子信息与电信工程学院</td></tr>
+                        @{ string deleteAdmin = "dAdminId";}
+                        @for (int i = 0; i < ((int)ViewBag.adminCount); i++)
+                        {
+                            <tr>
+                                <td><button type="button" name="deleteAdmin" class="btn btn-default">删除</button></td>
+                                <td id="@deleteAdmin@ViewBag.adminIds[i]">@ViewBag.adminIds[i]</td>
+                                <td>@ViewBag.adminNames[i]</td>
+                                <td>@ViewBag.departmentNames[i]</td>
+                            </tr>
+                        }
+                        @*<tr><td><button type="button" name="deleteAdmin" class="btn btn-default">删除</button></td><td>001</td><td>林俊健</td><td>信息科学技术学院</td></tr>
+                        <tr><td><button type="button" name="deleteAdmin" class="btn btn-default">删除</button></td><td>002</td><td>江楚坚</td><td>信息科学技术学院</td></tr>
+                        <tr><td><button type="button" name="deleteAdmin" class="btn btn-default">删除</button></td><td>003</td><td>吴一帆</td><td>电子信息与电信工程学院</td></tr>*@
                     </table>
                 </div>
             </div>
@@ -354,7 +382,7 @@
                                         @foreach (var department in ViewBag.departments)
                                         {
                                             <option>@department</option>
-                                        } 
+                                        }
                                     </select>
                                 </td>
                             </tr>
@@ -366,9 +394,10 @@
                             </tr>
 
                         </table>
-                        <label>导入学生列表：</label>
-                        <input type="file" />
                     </form>
+                    <label>导入学生列表：</label>
+                    <input type="file" id="fileName" name="files"/><br>
+                    <button id="uploadExcelFile" class="btn">上传</button>
                 </div>
             </div>
 
@@ -411,15 +440,51 @@
     <script src="~/Scripts/SystemAdministrator/system-administrator.js" type="text/javascript" charset="utf-8"></script>
     <script src="~/Scripts/SystemAdministrator/wangEditor.js" type="text/javascript" charset="utf-8"></script>
     <script src="~/Scripts/SystemAdministrator/MajorManage.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
+    
+    <script src="~/Scripts/SystemAdministrator/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
 
-		$(function(){
-			$('.selectpicker').selectpicker({noneSelectedText:'选择学院'});
-		    $('.selectpicker').selectpicker('val',$('.selectpicker').attr('value'));
-		});
+    $(function() {
+        $('.selectpicker').selectpicker({ noneSelectedText: '选择学院' });
+        $('.selectpicker').selectpicker('val', $('.selectpicker').attr('value'));
+    });
 
-		var editor = new wangEditor('textarea1');
-		editor.create();
-    </script>
+    var editor = new wangEditor('textarea1');
+    editor.create();
+
+   
+
+    $("#uploadExcelFile").click(function() {
+        event.preventDefault();
+        alert("刚才被点击了!");
+        var url = "/SystemAdmin/ReceiveFile";
+        var type = "post";
+        var dataType = "json";
+        var elementId = "fileName";
+
+        function success(data) {
+            alert("服务器端返回的信息为:" + data.tip);
+        };
+
+        function error(e, status) {
+            alert(e);
+            alert(status);
+        }
+        FileUpload(url, type, elementId, dataType, success, error);
+    });
+    function FileUpload(url, type, elementId, dataType, successfulResponse, errorResponse) {
+        
+        $.ajaxFileUpload({
+            url: url, //用于文件上传的服务器端请求地址
+            type: type, //type有post和get两种方式 
+            secureuri: false, //是否需要安全协议，一般设置为false
+            fileElementId: elementId, //文件上传域的ID
+            dataType: dataType, //返回值类型 一般设置为json
+            success: successfulResponse,
+            error: errorResponse
+        });
+    }
+</script>
+   
 </body>
 </html>

@@ -53,3 +53,6 @@ D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\bin\zh
 D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\obj\Debug\ThesisSelectSystem.dll
 D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\obj\Debug\ThesisSelectSystem.pdb
 D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\obj\Debug\ThesisSelectSystem.csprojResolveAssemblyReference.cache
+D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\bin\Aspose.Cells.dll
+D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\bin\Model.dll
+D:\GitRepository\ThesisSelectSystem\ThesisSelectSystem\ThesisSelectSystem\bin\Model.pdb

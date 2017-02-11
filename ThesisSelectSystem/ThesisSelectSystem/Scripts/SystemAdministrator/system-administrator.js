@@ -173,7 +173,123 @@ $(document).ready(function(){
 		    }
 
 		});
+
+    //$("#teacherIdList").change(function() {
+    //    //alert($("#teacherIdList option:selected").text());
+    //    var tid = $("#teacherIdList option:selected").attr('id');
+    //    var index = tid.substring(tid.length - 1, tid.length);
+    //    //alert(tid + " 索引号为" + index);
+    //    var selectId = "#tname" + index;
+    //    $(selectId).attr("selected", "selected");
+    //});
+	//$("#teacherIdList").attr("disabled", "disabled");
+	//$("#teacherNameList").change(function () {
+	//    $("#teacherNameList option:selected").attr("selected", "selected");
+	//    var text = $("#teacherNameList option:selected").innerText;
+    //});
+		function universalAjax(type, url, data, dataType, successFunction, errorFunction, completeFunction) {
+        $.ajax({
+            type: type,
+            url: url,
+            data: data,
+            dataType: dataType,
+            success: successFunction,
+            error: errorFunction,
+            complete:completeFunction
+        });
+		};
+
+		function myUniversalAjax(type, url, data, dataType, successFunction, errorFunction) {
+		    $.ajax({
+		        type: type,
+		        url: url,
+		        data: data,
+		        dataType: dataType,
+		        success: successFunction,
+		        error: errorFunction
+		    });
+		};
+
+
+    $("#addAdminBtn").click(function() {
+        var item = $("#teacherNameList option:selected");
+        var id = item.attr('id');
+        var name = item.val();
+        var departmentName = $("#departmentNameSelect option:selected").val();
+        alert("管理员id为：" + id + "  姓名为：" + name);
+
+        function success(data) {
+            alert(data.tip);
+            var deleteItem = $("#teacherNameList option:selected");
+            deleteItem.remove();
+            alert("管理员id为：" + id + "  姓名为：" + name+" 系名为："+departmentName);
+            var newRow = $("<tr></tr>").attr("id", id);
+            var cell0 = $("<td></td>").text(id);
+            var cell1 = $("<td></td>").text(name);
+            var cell2 = $("<td></td>").text(departmentName);
+            cell0.appendTo(newRow);
+            cell1.appendTo(newRow);
+            cell2.appendTo(newRow);
+            newRow.appendTo($("#adminList"));
+
+            var btn = $("<button></button>")
+                .attr("class", "btn btn-default")
+                .attr("type", "button")
+                .attr("name", "deleteAdmin");
+            btn.text("删除");
+            var deleteRow = $("<tr></tr>");
+            var column1 = $("<td></td>").text(id).attr("id", "dAdminId" + id);
+            var column2 = $("<td></td>").text(name);
+            var column3 = $("<td></td>").text(departmentName);
+            btn.appendTo(deleteRow);
+            column1.appendTo(deleteRow);
+            column2.appendTo(deleteRow);
+            column3.appendTo(deleteRow);
+            deleteRow.appendTo($("#deleteAdminTb"));
+        };
+
+        var type = "post";
+        var url = "/SystemAdmin/AddAdmin";
+        var data = { id: id, name: name, departmentName: departmentName };
+        var dataType = "json";
+        function error(errorThrown) {
+            alert(errorThrown);
+        };
+        myUniversalAjax(type, url, data, dataType, success, error);
+        
+
+    });
+
+    $("button[name='deleteAdmin']").each(function() {
+        $(this).click(function () {
+            var deleteRow = $(this).parent().parent();
+            var adminId = $(this).parent().parent().children().eq(1).text();
+            var name = $(this).parent().parent().children().eq(2).text();
+            alert(adminId);
+            var data = { id: adminId };
+            var type = "post";
+            var url = "/SystemAdmin/DeleteAdmin";
+            var dataType = "json";
+
+            function success(data) {
+                alert(data.tip);
+                deleteRow.remove();
+                var itemId = "#" + adminId;
+                $(itemId).remove();
+                var optionEle = $("<option>"+name+"</option>").attr("id", adminId);
+                optionEle.appendTo($("#teacherNameList"));
+            };
+            function error(errorThrown) {
+                alert(errorThrown);
+            };
+            myUniversalAjax(type, url, data, dataType, success, error);
+        });
+    });
+
 });
-	function openwin(){
-		window.open("page.html","newwindow","height=300,width=450,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=no")
+	function openwin() {
+	    window.open("page.html", "newwindow", "height=300,width=450,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=no");
 	}
+
+
+       

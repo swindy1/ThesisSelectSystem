@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <table name="student" primary-key="Sno">
+    <column name="Sno" use="true">sno</column>
+    <column name="MajorId" use="true">majorid</column>
+    <column name="Sex" use="true">sex</column>
+    <column name="ShortTel" use="false">shortTel</column>
+    <column name="LongTel" use="true">longTel</column>
+    <column name="ClassId" use="true">classid</column>
+    <column name="Sname" use="true">sname </column>
+    <column name="Email" use="true">email</column>
+    <column name="ChooseTopicWish" use="false">chooseTopicWish</column>
+    <column name="Position" use="false">position</column>
+    <column name="GradateYear" use="true">graduateYear</column>
+    <column name="WhetherMakeTopic" use="false">whetherMakeTopic</column>
+  </table>
+
+  <table name="teacher" primary-key="TeacherID">
+    <column name="TeacherID" use="true">id</column>
+    <column name="TeacherName" use="true">name</column>
+    <column name="LongTel" use="true">longTel</column>
+    <column name="ShortTel" use="true">shortTel</column>
+    <column name="Email" use="true">email</column>
+    <column name="TeachRank" use="true">rank</column>
+    <column name="GuideStuNumber" use="true">guideStudentNumber</column>
+    <column name="EducationalRoom" use="true">educationRoom</column>
+    <column name="DepartmentId" use="true">departmentId</column>
+    <column name="Account" use="false">account</column>
+    <column name="SpecialIdentity" use="true">specialIdentity</column>
+    <column name="MaxMakeTopicNumber" use="true">maxMakeTopicNumber</column>
+    <column name="TopicGroup" use="false">topicGroup</column>
+  </table>
+
+  <table name="userinfo" primary-key="Accounts">
+    <column name="Accounts" use="true">account</column>
+    <column name="Passwords" use="true">passwords</column>
+    <column name="Salt" use="true">salt</column>
+    <column name="Roles" use="true">roles</column>
+  </table>
+</root>

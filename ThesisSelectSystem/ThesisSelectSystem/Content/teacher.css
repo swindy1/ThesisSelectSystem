@@ -1,0 +1,439 @@
+html{
+	font-size: 62.5%;
+}
+body{
+	width: 100%;
+	height: 716px;
+	background-color: #FFFFFF;
+	margin: 0;
+	
+}
+* a{
+	text-decoration: none;
+}
+* li{
+	list-style: none;
+}
+header{
+	width: 100%;
+	height: 7%;
+	background-color: #62a4c9;
+}
+.admin{
+	width: 13%;
+	height: 100%;
+	float: left;
+	/*background-color: #445588;*/
+}
+.admin a{
+	text-decoration: none;
+}
+
+.glyphicon-leaf{
+	color: #fff;
+	font-size:2.0rem;
+	float: left;
+	padding: 10% 4% 10% 20%;
+}
+.adminstrastor{
+	font-size: 1.8rem;
+	color: #F1F1F1;
+	padding: 10% 20% 10% 2%;
+	float: left;
+}
+.warns{
+	width: 5%;
+	height: 100%;
+	float: right;
+	background-color: #209361;
+}
+.glyphicon-bell{
+	color: #FFFFFF;
+	font-size: 2.0rem;
+	float: right;
+	padding: 20% 30% 20% 30%;
+}
+.setting{
+	width: 5%;
+	height: 100%;
+	float: right;
+	background-color: #63a8d1;
+}
+.glyphicon-tasks{
+	color: #fff;
+	font-size: 2.0rem;
+	float: right;
+	padding: 20% 30%;
+}
+.body{
+	width: 100%;
+	height: 93%;
+	/*background-color: #00BFFF;*/
+}
+/*在width的设置中,要注意border添加之后会对整个width产生影响,以至于溢出影响布局*/
+.navigation{
+	width: 13%;
+	height: 100%;
+	background-color: #DDDDDD;
+	float: left;
+	border:  0.1rem solid #C0C0C0;
+	display: block;
+}
+
+.navigation ul:first-child{
+	padding: 0px;
+	
+}
+.btn1{
+	padding: 10% 13%;
+	font-size: 2.0rem;
+	color: #228377;
+	background-color: #DDDDDD;
+	border-bottom: 0.2rem solid #F2F2F2;
+}
+.btn3{
+	background-color: #DDDDDD;
+}
+.btn2{
+	padding: 10% 19%;
+	font-size: 2.0rem;
+	color: #228377;
+	background-color: #DDDDDD;
+	border-bottom: 0.2rem solid #F2F2F2;
+}
+.btn1:hover{
+	color: #228377;
+	border-bottom: 0.2rem solid #F2F2F2;
+}
+.navigation ul li ul{
+	padding: 0px;
+	font-size: 20px;
+}
+.navigation ul li ul li{
+	
+	padding: 0 15%;
+	font: "微软雅黑";
+	color: #255625;
+	border-bottom: 0.2rem solid #F2F2F2;
+	
+}
+.navigation ul li ul .btn{
+	font-size: 1.5rem;
+}
+.contents{
+	width: 87%;
+	height: 100%;
+	float: right;
+	display: block;
+}
+
+.search{
+	width: 100%;
+	height: 7%;
+	background-color: #F2F2F2;
+	border-bottom: 1px solid #C0C0C0;
+	border-top: 1px solid #C0C0C0;
+}
+
+.searchbody{
+	float: right;
+	height:7% ;
+	padding: 0.5% 0;	
+	
+}
+
+.contain{
+	width: 100%;
+	height:87%;
+	background-color: #FFFFFF;
+	
+}
+
+.selectstudent{
+	width: 100%;
+	height: 100%;
+	
+}
+.zini{
+	
+	width: 100%;
+	height: 100%;
+	/*background-color: #EBCCCC;*/
+}
+/*student2的样式是左边需要老师点击选择学生的table,student3是右边已经选择的学生的列表，我拟命题与自拟命题的两个table都一样的样式*/
+.student2{
+	padding: 5%;
+	width: 50%;
+	height: 100%;
+	float: left;
+	
+}
+.student2 table{
+	background-color: #E4B9C0;
+	border-radius: 5%;
+	opacity: 0.8;
+	font-size: 1.5rem;
+	
+}
+
+.th1{
+	width: 7%;
+	text-align: center;
+	
+}
+.th2{
+	width: 15%;
+	text-align:center;
+}
+.button{
+	padding: 10% 5% 10% 70%;
+}
+.student3{
+	padding:5%;
+	width: 50%;
+	height: 100%;
+	float: right;
+}
+.student3 table{
+	background-color:#DDFFDD;
+	border-radius: 5%;
+
+}
+.manage{
+	width: 100%;
+	height: 100%;
+}
+.situation{
+	width: 100%;
+	height: 100%;
+}
+.property{
+	width: 50%;
+	height: 100%;
+	float: left;
+	/*background-color: #009926;*/
+}
+.span{
+	padding-top: 20%;
+	color: #E4B9C0;
+	
+}
+.property span{
+	font-size: 2.0rem;
+	padding-top: 10%;
+	padding-left: 40%;
+}
+.canvas{
+	width: 50%;
+	height: 80%;
+	padding-top: 5%;
+	padding-left: 10%;
+	float: left;
+	
+}
+.canvas1{
+	width: 100%;
+	height: 60%;
+	background-color: #009926;
+	position: relative;
+	
+}
+.detail{
+	width: 40%;
+	height: 80%;
+	padding-top: 5%;
+	/*padding-left: 15%;*/
+	float: right;
+}
+.detail1{
+	width: 100%;
+	height: 60%;
+	background-color: #0F769F;
+}
+.class{
+	width: 50%;
+	height: 100%;
+	float: right;
+	/*background-color: #228377;*/
+}
+
+.allofthetopic{
+	width: 100%;
+	height: 100%;
+	
+}
+.topic1{
+	width: 50%;
+	height: 100%;
+	padding: 6% 4% 1.5%;
+	float: left;
+	font-size: 1.5rem;
+}
+.topic1 table{
+	background-color: #EBCCCC;
+	border-radius: 3%;
+
+}
+.topic2{
+	width: 50%;
+	height: 100%;
+	float: right;
+	padding: 6% 4% 1.5%;
+	font-size: 1.5rem;
+}
+.topic2 table{
+	background-color: #C1E2B3;
+	border-radius: 3%;
+}
+/*偶数行*/
+/*tr:nth-child(2n){
+	background-color: #CCCCCC;
+	opacity: 0.5;
+	
+}*/
+/*奇数行*/
+/*tr:nth-child(2n+1){
+	background-color: #60B564;
+	
+}*/
+.th3{
+	width: 3%;
+	padding-top: 0.8%;
+	padding-left: 1%;
+	/*padding-bottom: 2%;*/
+}
+.th4{
+	width: 4%;
+	padding-top: 1%;
+	padding-left: 1%;
+	
+	/*padding-bottom: 4%;*/
+	
+}
+.th5{
+	width: 10%;
+	padding-top: 1%;
+	padding-left: 1%;
+	
+	/*padding-bottom: 2%;*/
+	
+}
+.th6{
+	width: 8%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+.delete1 tr{
+	border-bottom: 0.5px solid #C0C0C0;
+	padding-top: 7%;
+}
+.btn-gr1{
+	padding-top: 5%;
+	padding-left: 20%;
+}
+
+.deletestudent{
+	width: 100%;
+	height: 100%;
+}
+
+.delete1{
+	width: 80%;
+	height: 100%;
+	padding: 2% 16% 3% 25%;
+	font-size: 1.6rem;
+}
+.delete1 table{
+	background-color: #F2F2F2;
+	border-radius: 4%;
+}
+.protocol{
+	width: 100%;
+	height: 100%;
+}
+.pro{
+	width: 100%;
+	height: 100%;
+	padding-top: 10%;
+	padding-left: 25%;
+	
+}
+.protocol1{
+	width: 65%;
+	height: 75%;
+	font-size: 2.0rem;
+	background-color: #b0e0e6;
+	border-radius: 5%;
+}
+.name{
+	width: 100%;
+	height: 25%;
+	padding-top: 8%;
+}
+.propeties{
+	width: 100%;
+	height: 25%;
+	padding-top: 12%;
+}
+.name span,.propeties span{
+	width: 40%;
+	float: left;
+	padding-left: 15%;
+}
+.name input{
+	width: 40%;
+	float: right;
+	margin-right: 15%;
+}
+.propeties select{
+	width: 40%;
+	float: right;
+	margin-right: 15%;
+	border-radius: 5%;
+	/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  	border: solid 1px #F0F0F0;
+}
+.propeties option{
+  	border: solid 1px #F0F0F0;
+	
+}
+.descrition{
+	width: 100%;
+	height: 40%;
+	padding-top: 12%;
+	
+}
+.descrition span{
+	width: 40%;
+	float: left;
+	padding-left: 15%;
+}
+.descrition textarea{
+	width: 40%;
+	float: right;
+	margin-right: 15%;
+	
+}
+.probtn{
+	padding-top: 20%;
+	padding-left: 50%;
+}
+.time{
+	width: 100%;
+	height: 6%;
+	background-color: #CCCCCC;
+	
+}
+.ownership{
+	float: left;
+	padding: 1% 18% 0;
+}
+.realtime{
+	padding: 1% 2% 0 3%;
+	float: right;
+}
+
+/*这里我先做的是常规的网站,然后不断向下兼容
+@media screen and (max-width: 960px) { ... } /*兼容平板*/
+@media screen and (max-width: 640px) { ... } /*兼容手机*/
+@media screen and (max-width: 480px) { ... }
