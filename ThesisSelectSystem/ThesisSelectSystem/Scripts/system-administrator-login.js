@@ -1,4 +1,6 @@
-$('#login-button').click(function (event) {  
+$('#login-button').click(function (event) {
+
+                 event.preventDefault();
 	//提交数据给数据库
 		    $.ajax({
 		    	type:"post",

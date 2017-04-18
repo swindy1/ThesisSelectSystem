@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Data.OleDb;
 
 namespace ThesisSelectSystem.DAL
 {
@@ -145,5 +146,48 @@ namespace ThesisSelectSystem.DAL
                 }
             }
         }
+
+
+        /// <summary>
+        /// 将excel文件导入数据库指定的表
+        /// </summary>
+        /// <param name="realPath">文件在服务器上的路径</param>
+        /// <param name="sheetName">工作表名</param>
+        /// <param name="tableName">数据库表名</param>
+        /// <returns></returns>
+        public static int ImportExcelDataToSql(string realPath, string sheetName,string tableName)
+        {
+            DataSet myds = new DataSet();
+            try
+            {
+                OleDbConnection olecon = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + realPath + ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1'");
+                string excelSql = "";//用来记录excel查询语句
+                OleDbDataAdapter oledbda = null;//
+                excelSql = string.Format("select * from [{0}$]", sheetName);
+                oledbda = new OleDbDataAdapter(excelSql, olecon);
+                oledbda.Fill(myds, sheetName);//填充数据
+
+                using (SqlBulkCopy bcp = new SqlBulkCopy(sqlConnectionString))
+                {
+                    bcp.BatchSize = 100;
+                    bcp.DestinationTableName = tableName;//目标表的名称
+                    bcp.WriteToServer(myds.Tables[0]);
+
+                }
+
+               return 1;
+            }
+            
+            catch
+            {
+                return 0;
+            }
+             
+
+        }
+
+
+
+
     }
 }

@@ -49,18 +49,30 @@ namespace ThesisSelectSystem.Controllers
         }
 
 
+
         
         public ActionResult SystemAdminMakeLogin()
-        {
+        {   
+            //创建session对象
+            Session["Account"] = null;
+            Session["role"] = null;
+
+            //接受登陆信息
             string Account = Request["Account"];
             string Password = Request["Password"];
 
             UserLogin_bll user = new UserLogin_bll();
             bool login = user.LoginYes(Account, Password);
             if (login)
+            {
+                Session["Account"] = Account;
+                Session["role"] = "1";
                 return Content("1");
+            }
             else
+            {
                 return Content("0");
+            }
             
         }
 

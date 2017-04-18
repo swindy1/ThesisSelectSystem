@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\ImportExcel_bll.cs" />
     <Compile Include="BLL\UserLogin_bll.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ExceptionController.cs" />
@@ -122,8 +123,10 @@
     <Compile Include="DAL\SqlConnectionString.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="DAL\User_dal.cs" />
+    <Compile Include="Filter\AdminAuthorizeAttribute.cs" />
     <Compile Include="Filter\MyAuthorizeAttribute.cs" />
     <Compile Include="Filter\MyExceptionFilterAttribute.cs" />
+    <Compile Include="Filter\SystemAdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,6 +142,8 @@
     <Content Include="Views\Teacher\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Inspector\Index.cshtml" />
+    <Content Include="Views\SystemAdmin\ImportExcelFile.cshtml" />
+    <Content Include="Views\SystemAdmin\test.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ExcelFiles\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <PropertyGroup>
